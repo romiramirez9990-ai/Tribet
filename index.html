@@ -1,289 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucky Crown</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a0a2e">
+<title>TRIBET - Bono 30% Extra</title>
 
-  <!-- =========================
-       META PIXEL (PEGAR ID ACA)
-       Reemplazá YOUR_PIXEL_ID
-       ========================= -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    // PEGAR TU PIXEL ID ACA
-    fbq('init', '1062966976055558');
-
-    // Evento PageView
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1062966976055558&ev=PageView&noscript=1"/>
-  </noscript>
-
-  <!-- Fuente -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Montserrat',sans-serif;
+<!-- Configuración Kommo (botón escondido) -->
+<script>
+window.crmPluginConfig = {
+  hidden: true,
+  color: '#D4AF37',
+  onlinechat: {
+    mode: 'frame',
+    container: '#kommoChatFrame',
+    locale: {
+      extends: 'es',
+      compose_placeholder: 'Escribí tu mensaje...'
     }
+  }
+};
+</script>
 
-    body{
-      min-height:100vh;
-      background:
-        radial-gradient(circle at top, rgba(255,190,0,.18) 0%, rgba(0,0,0,0) 35%),
-        linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow-x:hidden;
-    }
+<!-- Nuevo script de Kommo -->
+<script>(function(a,m,o,c,r,m){a[m]={id:"1079179",hash:"c7f0d6853c8f7bb1860f283be2ac50d0907409a1503255526fefb32cf873bf1e",locale:"es",setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.kommo.com/js/button.js';d.head&&d.head.appendChild(s)}(window,0,'crmPlugin',0,0,'crm_plugin'));</script>
 
-    .container{
-      width:100%;
-      max-width:430px;
-      padding:30px 20px 40px;
-      text-align:center;
-      position:relative;
-    }
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    .badge{
-      display:inline-block;
-      padding:10px 22px;
-      border:1px solid rgba(255,202,44,.45);
-      border-radius:40px;
-      color:#ffca2c;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:1px;
-      margin-bottom:28px;
-      background:rgba(255,202,44,.04);
-      box-shadow:0 0 15px rgba(255,202,44,.08);
-    }
+fbq('init', '1516200009506222');
+fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1516200009506222&ev=PageView&noscript=1"/>
+</noscript>
 
-    .logo{
-      font-size:64px;
-      font-weight:900;
-      line-height:1;
-      letter-spacing:2px;
-      color:#ffca2c;
-      text-shadow:0 0 20px rgba(255,202,44,.12);
-    }
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html, body{
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #0d0618;
+    color: #fff;
+  }
 
-    .sub{
-      margin-top:14px;
-      margin-bottom:36px;
-      color:#d8d8d8;
-      font-size:18px;
-      letter-spacing:4px;
-      font-weight:600;
-    }
+  .wrapper{
+    height: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .bonus{
-      border:2px solid rgba(255,202,44,.55);
-      border-radius:28px;
-      padding:28px 20px;
-      background:linear-gradient(180deg, rgba(255,202,44,.08), rgba(255,202,44,.03));
-      box-shadow:
-        0 0 30px rgba(255,202,44,.10),
-        inset 0 0 30px rgba(255,202,44,.03);
-      margin-bottom:26px;
-      position:relative;
-    }
+  .hero{
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
 
-    .bonus small{
-      display:block;
-      color:#ffca2c;
-      font-size:14px;
-      font-weight:800;
-      letter-spacing:2px;
-      margin-bottom:10px;
-    }
+  .cta-bar{
+    background: linear-gradient(180deg, #1a0a2e 0%, #0d0618 100%);
+    padding: 16px 20px 22px;
+    border-top: 1px solid rgba(212,175,55,0.25);
+    flex-shrink: 0;
+  }
 
-    .bonus h2{
-      font-size:64px;
-      line-height:1;
-      font-weight:900;
-      color:#ffca2c;
-      text-shadow:0 0 20px rgba(255,202,44,.12);
-    }
+  .ops{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #D4AF37;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .ops::before{
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #D4AF37;
+    border-radius: 50%;
+    animation: pulseDot 1.4s infinite;
+  }
 
-    .bonus p{
-      margin-top:14px;
-      font-size:18px;
-      color:#e4e4e4;
-      font-weight:600;
-    }
+  .bonus-line{
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .bonus-line .label{
+    font-size: 12px;
+    color: #c9a227;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .bonus-line .value{
+    font-size: 30px;
+    font-weight: 900;
+    color: #FFD700;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(255,215,0,0.45);
+    animation: glowText 2.4s ease-in-out infinite;
+  }
+  .bonus-line .sub{
+    font-size: 13px;
+    color: #b8a0d0;
+  }
 
-    .gift{
-      position:absolute;
-      right:22px;
-      top:18px;
-      font-size:34px;
-    }
+  .wa-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #D4AF37 0%, #b8860b 100%);
+    color: #1a0a2e;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 17px;
+    font-weight: 800;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+    animation: shake 2.8s ease-in-out infinite, glowBtn 2s ease-in-out infinite;
+  }
+  .wa-btn:active{
+    transform: scale(0.97);
+    animation: none;
+  }
+  .wa-btn svg{
+    width: 24px;
+    height: 24px;
+    fill: #1a0a2e;
+  }
 
-    .btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      width:100%;
-      padding:20px 24px;
-      margin-top:22px;
-      border-radius:999px;
-      text-decoration:none;
-      color:white;
-      font-size:22px;
-      font-weight:900;
-      background:#22d95c;
-      box-shadow:
-        0 0 18px rgba(34,217,92,.45),
-        0 0 36px rgba(34,217,92,.18);
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
+  .footer-text{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #8a7a9a;
+  }
 
-    .btn:hover{
-      transform:translateY(-1px) scale(1.01);
-      box-shadow:
-        0 0 24px rgba(34,217,92,.55),
-        0 0 44px rgba(34,217,92,.22);
-    }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    8%  { transform: translateX(-4px); }
+    16% { transform: translateX(4px); }
+    24% { transform: translateX(-3px); }
+    32% { transform: translateX(3px); }
+    40% { transform: translateX(0); }
+  }
 
-    .info{
-      margin-top:12px;
-      font-size:14px;
-      color:#bdbdbd;
-    }
+  @keyframes glowBtn {
+    0%, 100% { box-shadow: 0 8px 24px rgba(212,175,55,0.4); }
+    50% { box-shadow: 0 8px 32px rgba(212,175,55,0.7); }
+  }
 
-    .features{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:44px;
-      text-align:left;
-    }
+  @keyframes glowText {
+    0%, 100% { text-shadow: 0 0 12px rgba(255,215,0,0.35); }
+    50% { text-shadow: 0 0 22px rgba(255,215,0,0.65); }
+  }
 
-    .item{
-      flex:1;
-      min-width:0;
-    }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
 
-    .item h4{
-      color:#ffca2c;
-      font-size:14px;
-      font-weight:800;
-      margin-bottom:6px;
-    }
-
-    .item p{
-      color:#d0d0d0;
-      font-size:12px;
-      line-height:1.35;
-    }
-
-    .footer{
-      margin-top:38px;
-      color:#9a9a9a;
-      font-size:13px;
-      font-weight:600;
-    }
-
-    @media (max-width:480px){
-      .logo{
-        font-size:56px;
-      }
-
-      .bonus h2{
-        font-size:56px;
-      }
-
-      .btn{
-        font-size:20px;
-        padding:18px 20px;
-      }
-
-      .features{
-        gap:10px;
-      }
-    }
-  </style>
+  #kommoChatFrame{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 9999;
+  }
+  #kommoChatFrame.is-open{
+    visibility: visible;
+    opacity: 1;
+  }
+  #kommoChatFrame iframe{
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+  }
+  #kommoClose{
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2a1a3e;
+    color: #FFD700;
+    font-size: 20px;
+    display: none;
+    z-index: 10000;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  #kommoClose.is-open{
+    display: flex;
+  }
+</style>
 </head>
-
 <body>
 
-  <div class="container">
+<div class="wrapper">
 
-    <div class="badge">🟢 ATENCIÓN 24HS · ARGENTINA</div>
-
-    <div class="logo">LUCKY CROWN</div>
-
-    <div class="sub">ENTRETENIMIENTO ONLINE</div>
-
-    <div class="bonus">
-      <div class="gift">🎁</div>
-      <small>BONO DE BIENVENIDA</small>
-      <h2>50% EXTRA</h2>
-      <p>En tu primer depósito · Juegos originales</p>
-    </div>
-
-    <!-- BOTÓN WHATSAPP 1 -->
-    <a class="btn"
-       href="https://wa.me/549XXXXXXXXXX"
-       target="_blank"
-       onclick="fbq('track', 'Contact');">
-      📲 CREÁ TU USUARIO GRATIS
-    </a>
-
-    <div class="info">
-      Sin costo · Registro en minutos · Bono inmediato
-    </div>
-
-    <!-- BOTÓN WHATSAPP 2 -->
-    <a class="btn"
-       href="https://wa.me/549XXXXXXXXXX"
-       target="_blank"
-       onclick="fbq('track', 'Contact');">
-      📲 REGISTRATE GRATIS AHORA
-    </a>
-
-    <div class="features">
-      <div class="item">
-        <h4>🔒 SEGURO</h4>
-        <p>Plataforma 100% segura</p>
-      </div>
-
-      <div class="item">
-        <h4>⚡ RÁPIDO</h4>
-        <p>Depósitos y retiros al instante</p>
-      </div>
-
-      <div class="item">
-        <h4>🎧 SOPORTE 24HS</h4>
-        <p>Estamos para ayudarte</p>
-      </div>
-    </div>
-
-    <div class="footer">
-      +18 · Juega con responsabilidad
-    </div>
-
+  <div class="hero">
+    <img src="tribet-logo-hero.png" alt="TRIBET - Bono 30% Extra">
   </div>
+
+  <div class="cta-bar">
+    <div class="ops">Operadores en línea ahora</div>
+
+    <div class="bonus-line">
+      <div class="label">BONO DE BIENVENIDA</div>
+      <div class="value">30% EXTRA</div>
+      <div class="sub">en tu primer depósito</div>
+    </div>
+
+    <button class="wa-btn" id="openChatBtn">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Escribinos por WhatsApp
+    </button>
+
+    <div class="footer-text">Respuesta inmediata • Atención 24 hs</div>
+  </div>
+
+</div>
+
+<div id="kommoChatFrame"></div>
+<button id="kommoClose">✕</button>
+
+<script>
+const frame = document.getElementById('kommoChatFrame');
+const closeBtn = document.getElementById('kommoClose');
+const openBtn = document.getElementById('openChatBtn');
+let ready = false;
+let pending = false;
+
+function fireContactEvent() {
+  try {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact');
+      fbq('trackCustom', 'ClickWhatsAppButton');
+      console.log('✅ Evento Contact enviado');
+    } else {
+      console.log('❌ fbq no está disponible todavía');
+    }
+  } catch (e) {
+    console.log('Error pixel:', e);
+  }
+}
+
+function openReal(){
+  frame.classList.add('is-open');
+  closeBtn.classList.add('is-open');
+  try{ crmPlugin('runChatShow'); }catch(e){}
+  fireContactEvent();
+}
+
+function openChat(){
+  if(ready){ openReal(); }
+  else{ pending = true; }
+}
+
+function closeChat(){
+  frame.classList.remove('is-open');
+  closeBtn.classList.remove('is-open');
+  try{ crmPlugin('runChatHide'); }catch(e){}
+}
+
+function bind(){
+  if(typeof crmPlugin !== 'function'){
+    setTimeout(bind, 150);
+    return;
+  }
+  crmPlugin('onChatReady', function(){
+    ready = true;
+    if(pending){ pending = false; openReal(); }
+  });
+}
+
+openBtn.addEventListener('click', openChat);
+closeBtn.addEventListener('click', closeChat);
+bind();
+</script>
 
 </body>
 </html>
