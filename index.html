@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +7,7 @@
 <meta name="theme-color" content="#1a0a2e">
 <title>TRIBET - Bono 30% Extra</title>
 
-<!-- Configuración Kommo (botón escondido) -->
+<!-- Configuración Kommo -->
 <script>
 window.crmPluginConfig = {
   hidden: true,
@@ -22,288 +23,526 @@ window.crmPluginConfig = {
 };
 </script>
 
-<!-- Nuevo script de Kommo -->
-<script>(function(a,m,o,c,r,m){a[m]={id:"1079149",hash:"1108171ec85f70060a11d3f1d57905c3369d2fd29664110f2684938c554c2f4a",locale:"es",setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.kommo.com/js/button.js';d.head&&d.head.appendChild(s)}(window,0,'crmPlugin',0,0,'crm_plugin'));</script>
+<!-- Kommo -->
+<script>
+(function(a,m,o,c,r,m){
+  a[m]={
+    id:"1079149",
+    hash:"1108171ec85f70060a11d3f1d57905c3369d2fd29664110f2684938c554c2f4a",
+    locale:"es",
+    setMeta:function(p){
+      this.params=(this.params||[]).concat([p])
+    }
+  };
+
+  a[o]=a[o]||function(){
+    (a[o].q=a[o].q||[]).push(arguments)
+  };
+
+  var d=a.document,
+      s=d.createElement('script');
+
+  s.async=true;
+  s.id=m+'_script';
+  s.src='https://gso.kommo.com/js/button.js';
+
+  d.head&&d.head.appendChild(s)
+
+}(window,0,'crmPlugin',0,0,'crm_plugin'));
+</script>
 
 <!-- Facebook Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){
-if(f.fbq)return;
-n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+  if(f.fbq)return;
+
+  n=f.fbq=function(){
+    n.callMethod ?
+      n.callMethod.apply(n,arguments) :
+      n.queue.push(arguments)
+  };
+
+  if(!f._fbq)f._fbq=n;
+
+  n.push=n;
+  n.loaded=!0;
+  n.version='2.0';
+  n.queue=[];
+
+  t=b.createElement(e);
+  t.async=!0;
+  t.src=v;
+
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s);
+
 }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '1628936452188552');
+
+/*
+  SOLO PageView desde el Pixel.
+  Contact NO se dispara desde el navegador.
+  Contact viene exclusivamente desde:
+  Kommo → Worker → Conversions API
+*/
+
 fbq('track', 'PageView');
 </script>
+
 <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1"/>
+  <img
+    height="1"
+    width="1"
+    style="display:none"
+    src="https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1"
+  />
 </noscript>
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html, body{
-    height: 100%;
-    overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: #0d0618;
-    color: #fff;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+html,
+body{
+  height:100%;
+  overflow:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:#0d0618;
+  color:#fff;
+}
+
+.wrapper{
+  height:100%;
+  max-width:480px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+}
+
+.hero{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  min-height:0;
+}
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 15%;
+  display:block;
+}
+
+.cta-bar{
+  background:linear-gradient(180deg,#1a0a2e 0%,#0d0618 100%);
+  padding:16px 20px 22px;
+  border-top:1px solid rgba(212,175,55,0.25);
+  flex-shrink:0;
+}
+
+.ops{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:13px;
+  color:#D4AF37;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.ops::before{
+  content:'';
+  width:8px;
+  height:8px;
+  background:#D4AF37;
+  border-radius:50%;
+  animation:pulseDot 1.4s infinite;
+}
+
+.bonus-line{
+  text-align:center;
+  margin-bottom:14px;
+}
+
+.bonus-line .label{
+  font-size:12px;
+  color:#c9a227;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.bonus-line .value{
+  font-size:30px;
+  font-weight:900;
+  color:#FFD700;
+  line-height:1.1;
+  text-shadow:0 0 20px rgba(255,215,0,0.45);
+  animation:glowText 2.4s ease-in-out infinite;
+}
+
+.bonus-line .sub{
+  font-size:13px;
+  color:#b8a0d0;
+}
+
+.wa-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:linear-gradient(135deg,#D4AF37 0%,#b8860b 100%);
+  color:#1a0a2e;
+  border:none;
+  border-radius:14px;
+  padding:16px 20px;
+  font-size:17px;
+  font-weight:800;
+  width:100%;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(212,175,55,0.4);
+  animation:shake 2.8s ease-in-out infinite,glowBtn 2s ease-in-out infinite;
+}
+
+.wa-btn:active{
+  transform:scale(0.97);
+  animation:none;
+}
+
+.wa-btn svg{
+  width:24px;
+  height:24px;
+  fill:#1a0a2e;
+}
+
+.footer-text{
+  text-align:center;
+  margin-top:10px;
+  font-size:12px;
+  color:#8a7a9a;
+}
+
+@keyframes shake{
+
+  0%,100%{
+    transform:translateX(0);
   }
 
-  .wrapper{
-    height: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  8%{
+    transform:translateX(-4px);
   }
 
-  .hero{
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    min-height: 0;
-  }
-  .hero img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 15%;   /* ← ajustado para móvil */
-    display: block;
+  16%{
+    transform:translateX(4px);
   }
 
-  .cta-bar{
-    background: linear-gradient(180deg, #1a0a2e 0%, #0d0618 100%);
-    padding: 16px 20px 22px;
-    border-top: 1px solid rgba(212,175,55,0.25);
-    flex-shrink: 0;
+  24%{
+    transform:translateX(-3px);
   }
 
-  .ops{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 13px;
-    color: #D4AF37;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .ops::before{
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #D4AF37;
-    border-radius: 50%;
-    animation: pulseDot 1.4s infinite;
+  32%{
+    transform:translateX(3px);
   }
 
-  .bonus-line{
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .bonus-line .label{
-    font-size: 12px;
-    color: #c9a227;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-  .bonus-line .value{
-    font-size: 30px;
-    font-weight: 900;
-    color: #FFD700;
-    line-height: 1.1;
-    text-shadow: 0 0 20px rgba(255,215,0,0.45);
-    animation: glowText 2.4s ease-in-out infinite;
-  }
-  .bonus-line .sub{
-    font-size: 13px;
-    color: #b8a0d0;
+  40%{
+    transform:translateX(0);
   }
 
-  .wa-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #D4AF37 0%, #b8860b 100%);
-    color: #1a0a2e;
-    border: none;
-    border-radius: 14px;
-    padding: 16px 20px;
-    font-size: 17px;
-    font-weight: 800;
-    width: 100%;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(212,175,55,0.4);
-    animation: shake 2.8s ease-in-out infinite, glowBtn 2s ease-in-out infinite;
-  }
-  .wa-btn:active{
-    transform: scale(0.97);
-    animation: none;
-  }
-  .wa-btn svg{
-    width: 24px;
-    height: 24px;
-    fill: #1a0a2e;
+}
+
+@keyframes glowBtn{
+
+  0%,100%{
+    box-shadow:0 8px 24px rgba(212,175,55,0.4);
   }
 
-  .footer-text{
-    text-align: center;
-    margin-top: 10px;
-    font-size: 12px;
-    color: #8a7a9a;
+  50%{
+    box-shadow:0 8px 32px rgba(212,175,55,0.7);
   }
 
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    8%  { transform: translateX(-4px); }
-    16% { transform: translateX(4px); }
-    24% { transform: translateX(-3px); }
-    32% { transform: translateX(3px); }
-    40% { transform: translateX(0); }
+}
+
+@keyframes glowText{
+
+  0%,100%{
+    text-shadow:0 0 12px rgba(255,215,0,0.35);
   }
 
-  @keyframes glowBtn {
-    0%, 100% { box-shadow: 0 8px 24px rgba(212,175,55,0.4); }
-    50% { box-shadow: 0 8px 32px rgba(212,175,55,0.7); }
+  50%{
+    text-shadow:0 0 22px rgba(255,215,0,0.65);
   }
 
-  @keyframes glowText {
-    0%, 100% { text-shadow: 0 0 12px rgba(255,215,0,0.35); }
-    50% { text-shadow: 0 0 22px rgba(255,215,0,0.65); }
+}
+
+@keyframes pulseDot{
+
+  0%,100%{
+    opacity:1;
+    transform:scale(1);
   }
 
-  @keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
+  50%{
+    opacity:0.4;
+    transform:scale(0.85);
   }
 
-  #kommoChatFrame{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 9999;
-  }
-  #kommoChatFrame.is-open{
-    visibility: visible;
-    opacity: 1;
-  }
-  #kommoChatFrame iframe{
-    width: 100% !important;
-    height: 100% !important;
-    border: 0 !important;
-  }
-  #kommoClose{
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 50%;
-    background: #2a1a3e;
-    color: #FFD700;
-    font-size: 20px;
-    display: none;
-    z-index: 10000;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-  }
-  #kommoClose.is-open{
-    display: flex;
-  }
+}
+
+#kommoChatFrame{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  visibility:hidden;
+  opacity:0;
+  transition:0.3s;
+  z-index:9999;
+}
+
+#kommoChatFrame.is-open{
+  visibility:visible;
+  opacity:1;
+}
+
+#kommoChatFrame iframe{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+
+#kommoClose{
+  position:fixed;
+  top:16px;
+  right:16px;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:#2a1a3e;
+  color:#FFD700;
+  font-size:20px;
+  display:none;
+  z-index:10000;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+}
+
+#kommoClose.is-open{
+  display:flex;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="wrapper">
 
   <div class="hero">
-    <img src="tribet-hero-mobile.jpg" alt="TRIBET - Bono 30% Extra">
+    <img
+      src="tribet-hero-mobile.jpg"
+      alt="TRIBET - Bono 30% Extra"
+    >
   </div>
 
   <div class="cta-bar">
-    <div class="ops">Operadores en línea ahora</div>
 
-    <div class="bonus-line">
-      <div class="label">BONO DE BIENVENIDA</div>
-      <div class="value">30% EXTRA</div>
-      <div class="sub">en tu primer depósito</div>
+    <div class="ops">
+      Operadores en línea ahora
     </div>
 
-    <button class="wa-btn" id="openChatBtn">
+    <div class="bonus-line">
+
+      <div class="label">
+        BONO DE BIENVENIDA
+      </div>
+
+      <div class="value">
+        30% EXTRA
+      </div>
+
+      <div class="sub">
+        en tu primer depósito
+      </div>
+
+    </div>
+
+    <button
+      class="wa-btn"
+      id="openChatBtn"
+    >
+
       <svg viewBox="0 0 24 24">
+
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+
       </svg>
+
       Escribinos por WhatsApp
+
     </button>
 
-    <div class="footer-text">Respuesta inmediata • Atención 24 hs</div>
+    <div class="footer-text">
+      Respuesta inmediata • Atención 24 hs
+    </div>
+
   </div>
 
 </div>
 
+<!-- Contenedor del ChatWeb -->
 <div id="kommoChatFrame"></div>
-<button id="kommoClose">✕</button>
+
+<!-- Botón cerrar -->
+<button id="kommoClose">
+  ✕
+</button>
 
 <script>
-const frame = document.getElementById('kommoChatFrame');
-const closeBtn = document.getElementById('kommoClose');
-const openBtn = document.getElementById('openChatBtn');
+
+const frame =
+  document.getElementById('kommoChatFrame');
+
+const closeBtn =
+  document.getElementById('kommoClose');
+
+const openBtn =
+  document.getElementById('openChatBtn');
+
 let ready = false;
-let pending = false;
 
 
-    } else {
-      console.log('❌ fbq no está disponible todavía');
-    }
-  } catch (e) {
-    console.log('Error pixel:', e);
-  }
-}
+// =========================================================
+// ABRIR CHAT
+// =========================================================
 
 function openReal(){
+
   frame.classList.add('is-open');
+
   closeBtn.classList.add('is-open');
-  try{ crmPlugin('runChatShow'); }catch(e){}
-  fireContactEvent();
+
+  try{
+
+    crmPlugin('runChatShow');
+
+    console.log('✅ ChatWeb Kommo abierto automáticamente');
+
+  }catch(e){
+
+    console.log(
+      '❌ Error abriendo ChatWeb:',
+      e
+    );
+
+  }
+
 }
+
+
+// =========================================================
+// ABRIR CHAT MANUALMENTE
+// =========================================================
 
 function openChat(){
-  if(ready){ openReal(); }
-  else{ pending = true; }
+
+  if(ready){
+
+    openReal();
+
+  }
+
 }
+
+
+// =========================================================
+// CERRAR CHAT
+// =========================================================
 
 function closeChat(){
+
   frame.classList.remove('is-open');
+
   closeBtn.classList.remove('is-open');
-  try{ crmPlugin('runChatHide'); }catch(e){}
+
+  try{
+
+    crmPlugin('runChatHide');
+
+  }catch(e){}
+
 }
+
+
+// =========================================================
+// ESPERAR A QUE KOMMO ESTÉ LISTO
+// =========================================================
 
 function bind(){
+
   if(typeof crmPlugin !== 'function'){
-    setTimeout(bind, 150);
+
+    setTimeout(bind,150);
+
     return;
+
   }
-  crmPlugin('onChatReady', function(){
+
+
+  crmPlugin('onChatReady',function(){
+
     ready = true;
-    if(pending){ pending = false; openReal(); }
+
+    console.log(
+      '✅ Kommo ChatWeb listo'
+    );
+
+
+    // =====================================================
+    // ABRIR AUTOMÁTICAMENTE AL CARGAR LA PÁGINA
+    // =====================================================
+
+    setTimeout(function(){
+
+      openReal();
+
+    },300);
+
   });
+
 }
 
-openBtn.addEventListener('click', openChat);
-closeBtn.addEventListener('click', closeChat);
+
+// =========================================================
+// BOTONES
+// =========================================================
+
+openBtn.addEventListener(
+  'click',
+  openChat
+);
+
+closeBtn.addEventListener(
+  'click',
+  closeChat
+);
+
+
+// =========================================================
+// INICIAR KOMMO
+// =========================================================
+
 bind();
+
 </script>
 
 </body>
 </html>
+```
+
