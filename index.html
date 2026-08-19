@@ -1,438 +1,928 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#1a0a2e">
-<title>TRIBET - Bono 30% Extra</title>
 
-<!-- Configuración Kommo -->
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
+
+<meta
+  name="theme-color"
+  content="#08040d"
+>
+
+<title>OASIS - Bono 30% Extra</title>
+
+
+<!-- =========================================================
+     CONFIGURACIÓN KOMMO
+     ========================================================= -->
+
 <script>
+
 window.crmPluginConfig = {
+
   hidden: true,
+
   color: '#D4AF37',
+
   onlinechat: {
+
     mode: 'frame',
+
     container: '#kommoChatFrame',
+
     locale: {
+
       extends: 'es',
-      compose_placeholder: 'Escribí tu mensaje...'
+
+      compose_placeholder:
+        'Escribí tu mensaje...'
+
     }
+
   }
+
 };
+
 </script>
 
-<!-- Kommo -->
+
+<!-- =========================================================
+     KOMMO
+     ========================================================= -->
+
 <script>
+
 (function(a,m,o,c,r,m){
-  a[m]={
-    id:"1079149",
-    hash:"1108171ec85f70060a11d3f1d57905c3369d2fd29664110f2684938c554c2f4a",
-    locale:"es",
-    setMeta:function(p){
-      this.params=(this.params||[]).concat([p])
+
+  a[m] = {
+
+    id: "1079149",
+
+    hash:
+      "1108171ec85f70060a11d3f1d57905c3369d2fd29664110f2684938c554c2f4a",
+
+    locale: "es",
+
+    setMeta: function(p){
+
+      this.params =
+        (this.params || []).concat([p]);
+
     }
+
   };
 
-  a[o]=a[o]||function(){
-    (a[o].q=a[o].q||[]).push(arguments)
+
+  a[o] = a[o] || function(){
+
+    (a[o].q = a[o].q || []).push(arguments);
+
   };
 
-  var d=a.document,
-      s=d.createElement('script');
 
-  s.async=true;
-  s.id=m+'_script';
-  s.src='https://gso.kommo.com/js/button.js';
+  var d = a.document;
 
-  d.head&&d.head.appendChild(s)
+  var s = d.createElement('script');
 
-}(window,0,'crmPlugin',0,0,'crm_plugin'));
+  s.async = true;
+
+  s.id = m + '_script';
+
+  s.src =
+    'https://gso.kommo.com/js/button.js';
+
+  d.head &&
+    d.head.appendChild(s);
+
+
+}(window, 0, 'crmPlugin', 0, 0, 'crm_plugin'));
+
 </script>
 
-<!-- Facebook Pixel -->
+
+<!-- =========================================================
+     FACEBOOK PIXEL
+     
+     SOLO PAGEVIEW.
+     
+     CONTACT NO SE DISPARA DESDE EL NAVEGADOR.
+     
+     CONTACT VIENE EXCLUSIVAMENTE DESDE:
+     
+     KOMMO
+       ↓
+     CLOUDFLARE WORKER
+       ↓
+     META CONVERSIONS API
+     ========================================================= -->
+
 <script>
+
 !function(f,b,e,v,n,t,s){
+
   if(f.fbq)return;
 
   n=f.fbq=function(){
+
     n.callMethod ?
       n.callMethod.apply(n,arguments) :
-      n.queue.push(arguments)
+      n.queue.push(arguments);
+
   };
 
-  if(!f._fbq)f._fbq=n;
+  if(!f._fbq)
+    f._fbq=n;
 
   n.push=n;
-  n.loaded=!0;
+
+  n.loaded=true;
+
   n.version='2.0';
+
   n.queue=[];
 
   t=b.createElement(e);
-  t.async=!0;
+
+  t.async=true;
+
   t.src=v;
 
   s=b.getElementsByTagName(e)[0];
+
   s.parentNode.insertBefore(t,s);
 
-}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+}(
+  window,
+  document,
+  'script',
+  'https://connect.facebook.net/en_US/fbevents.js'
+);
 
-fbq('init', '1628936452188552');
 
 /*
-  SOLO PageView desde el Pixel.
-  Contact NO se dispara desde el navegador.
-  Contact viene exclusivamente desde:
-  Kommo → Worker → Conversions API
+  =========================================================
+  PIXEL OASIS
+  =========================================================
+
+  SOLO PageView.
+
+  NO Contact.
+
+  NO ClickWhatsAppButton.
+
+  NO evento al abrir el ChatWeb.
+
+  =========================================================
 */
 
-fbq('track', 'PageView');
+fbq(
+  'init',
+  '1628936452188552'
+);
+
+
+fbq(
+  'track',
+  'PageView'
+);
+
 </script>
 
+
 <noscript>
+
   <img
     height="1"
     width="1"
     style="display:none"
     src="https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1"
-  />
+  >
+
 </noscript>
+
+
+<!-- =========================================================
+     ESTILOS
+     ========================================================= -->
 
 <style>
 
 *{
+
   margin:0;
+
   padding:0;
-  box-sizing:border-box
+
+  box-sizing:border-box;
+
 }
+
 
 html,
 body{
+
+  width:100%;
+
   height:100%;
+
   overflow:hidden;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  background:#0d0618;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background:#08040d;
+
   color:#fff;
+
 }
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
 
 .wrapper{
+
+  width:100%;
+
   height:100%;
+
   max-width:480px;
+
   margin:0 auto;
+
   display:flex;
+
   flex-direction:column;
+
+  background:#08040d;
+
 }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
+
   flex:1;
+
   position:relative;
+
   overflow:hidden;
+
   min-height:0;
+
+  background:#08040d;
+
 }
+
 
 .hero img{
+
   width:100%;
+
   height:100%;
-  object-fit:cover;
-  object-position:center 15%;
+
   display:block;
+
+  object-fit:cover;
+
+  object-position:center top;
+
 }
+
+
+/* =========================================================
+   BARRA INFERIOR
+   ========================================================= */
 
 .cta-bar{
-  background:linear-gradient(180deg,#1a0a2e 0%,#0d0618 100%);
-  padding:16px 20px 22px;
-  border-top:1px solid rgba(212,175,55,0.25);
+
+  position:relative;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #160b20 0%,
+      #09040d 100%
+    );
+
+  padding:12px 16px 18px;
+
+  border-top:
+    1px solid
+    rgba(212,175,55,0.35);
+
   flex-shrink:0;
+
 }
+
+
+/* =========================================================
+   ESTADO ONLINE
+   ========================================================= */
 
 .ops{
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:8px;
-  font-size:13px;
-  color:#D4AF37;
-  font-weight:600;
-  margin-bottom:12px;
+
+  margin-bottom:10px;
+
+  font-size:12px;
+
+  color:#e4c45d;
+
+  font-weight:700;
+
 }
+
 
 .ops::before{
+
   content:'';
-  width:8px;
-  height:8px;
-  background:#D4AF37;
+
+  width:7px;
+
+  height:7px;
+
   border-radius:50%;
+
+  background:#D4AF37;
+
+  box-shadow:
+    0 0 8px
+    rgba(212,175,55,0.8);
+
   animation:pulseDot 1.4s infinite;
+
 }
+
+
+/* =========================================================
+   BONO
+   ========================================================= */
 
 .bonus-line{
+
   text-align:center;
-  margin-bottom:14px;
+
+  margin-bottom:11px;
+
 }
+
 
 .bonus-line .label{
-  font-size:12px;
-  color:#c9a227;
-  letter-spacing:1.5px;
+
+  font-size:10px;
+
+  letter-spacing:1.8px;
+
+  color:#c9a94d;
+
   text-transform:uppercase;
+
+  font-weight:700;
+
 }
+
 
 .bonus-line .value{
-  font-size:30px;
-  font-weight:900;
-  color:#FFD700;
-  line-height:1.1;
-  text-shadow:0 0 20px rgba(255,215,0,0.45);
+
+  font-size:25px;
+
+  line-height:1.05;
+
+  font-weight:950;
+
+  color:#FFD75A;
+
+  text-shadow:
+
+    0 0 8px
+    rgba(255,215,90,0.35),
+
+    0 0 20px
+    rgba(212,175,55,0.25);
+
   animation:glowText 2.4s ease-in-out infinite;
+
 }
+
 
 .bonus-line .sub{
-  font-size:13px;
-  color:#b8a0d0;
+
+  margin-top:2px;
+
+  font-size:11px;
+
+  color:#bcaec8;
+
 }
+
+
+/* =========================================================
+   BOTÓN CHAT
+   ========================================================= */
 
 .wa-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  background:linear-gradient(135deg,#D4AF37 0%,#b8860b 100%);
-  color:#1a0a2e;
-  border:none;
-  border-radius:14px;
-  padding:16px 20px;
-  font-size:17px;
-  font-weight:800;
+
   width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  padding:15px 18px;
+
+  border:0;
+
+  border-radius:14px;
+
   cursor:pointer;
-  box-shadow:0 8px 24px rgba(212,175,55,0.4);
-  animation:shake 2.8s ease-in-out infinite,glowBtn 2s ease-in-out infinite;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #D4AF37 0%,
+      #f3cc4f 45%,
+      #b8860b 100%
+    );
+
+  color:#160b20;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  box-shadow:
+
+    0 7px 24px
+    rgba(212,175,55,0.38);
+
+  animation:
+
+    shake 3s ease-in-out infinite,
+
+    glowBtn 2.2s ease-in-out infinite;
+
 }
+
 
 .wa-btn:active{
+
   transform:scale(0.97);
+
   animation:none;
+
 }
+
 
 .wa-btn svg{
-  width:24px;
-  height:24px;
-  fill:#1a0a2e;
+
+  width:23px;
+
+  height:23px;
+
+  flex-shrink:0;
+
+  fill:#160b20;
+
 }
 
+
+/* =========================================================
+   TEXTO FINAL
+   ========================================================= */
+
 .footer-text{
+
   text-align:center;
-  margin-top:10px;
-  font-size:12px;
-  color:#8a7a9a;
+
+  margin-top:8px;
+
+  font-size:10px;
+
+  color:#82768b;
+
 }
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
 
 @keyframes shake{
 
-  0%,100%{
+  0%,
+  100%{
+
     transform:translateX(0);
+
   }
 
   8%{
-    transform:translateX(-4px);
+
+    transform:translateX(-3px);
+
   }
 
   16%{
-    transform:translateX(4px);
+
+    transform:translateX(3px);
+
   }
 
   24%{
-    transform:translateX(-3px);
+
+    transform:translateX(-2px);
+
   }
 
   32%{
-    transform:translateX(3px);
+
+    transform:translateX(2px);
+
   }
 
   40%{
+
     transform:translateX(0);
+
   }
 
 }
+
 
 @keyframes glowBtn{
 
-  0%,100%{
-    box-shadow:0 8px 24px rgba(212,175,55,0.4);
+  0%,
+  100%{
+
+    box-shadow:
+
+      0 7px 24px
+      rgba(212,175,55,0.38);
+
   }
 
   50%{
-    box-shadow:0 8px 32px rgba(212,175,55,0.7);
+
+    box-shadow:
+
+      0 8px 34px
+      rgba(212,175,55,0.65);
+
   }
 
 }
+
 
 @keyframes glowText{
 
-  0%,100%{
-    text-shadow:0 0 12px rgba(255,215,0,0.35);
+  0%,
+  100%{
+
+    text-shadow:
+
+      0 0 8px
+      rgba(255,215,90,0.25);
+
   }
 
   50%{
-    text-shadow:0 0 22px rgba(255,215,0,0.65);
+
+    text-shadow:
+
+      0 0 14px
+      rgba(255,215,90,0.55),
+
+      0 0 28px
+      rgba(212,175,55,0.25);
+
   }
 
 }
+
 
 @keyframes pulseDot{
 
-  0%,100%{
+  0%,
+  100%{
+
     opacity:1;
+
     transform:scale(1);
+
   }
 
   50%{
-    opacity:0.4;
-    transform:scale(0.85);
+
+    opacity:0.45;
+
+    transform:scale(0.8);
+
   }
 
 }
 
+
+/* =========================================================
+   CHATWEB KOMMO
+   ========================================================= */
+
 #kommoChatFrame{
+
   position:fixed;
+
   inset:0;
-  background:rgba(0,0,0,0.95);
+
+  width:100%;
+
+  height:100%;
+
+  background:rgba(0,0,0,0.96);
+
   visibility:hidden;
+
   opacity:0;
-  transition:0.3s;
+
+  transition:
+
+    opacity 0.3s ease,
+
+    visibility 0.3s ease;
+
   z-index:9999;
+
 }
+
 
 #kommoChatFrame.is-open{
+
   visibility:visible;
+
   opacity:1;
+
 }
+
 
 #kommoChatFrame iframe{
+
   width:100% !important;
+
   height:100% !important;
+
   border:0 !important;
+
 }
+
+
+/* =========================================================
+   BOTÓN CERRAR CHAT
+   ========================================================= */
 
 #kommoClose{
+
   position:fixed;
+
   top:16px;
+
   right:16px;
+
   width:44px;
+
   height:44px;
+
   border:none;
+
   border-radius:50%;
-  background:#2a1a3e;
-  color:#FFD700;
+
+  background:#24162d;
+
+  color:#FFD75A;
+
   font-size:20px;
+
   display:none;
-  z-index:10000;
-  cursor:pointer;
+
   align-items:center;
+
   justify-content:center;
+
+  z-index:10000;
+
+  cursor:pointer;
+
+  box-shadow:
+
+    0 4px 15px
+    rgba(0,0,0,0.4);
+
 }
+
 
 #kommoClose.is-open{
+
   display:flex;
+
 }
 
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================================
+     LANDING
+     ========================================================= -->
+
 <div class="wrapper">
 
+
+  <!-- HERO -->
+
   <div class="hero">
+
     <img
-      src="tribet-hero-mobile.jpg"
-      alt="TRIBET - Bono 30% Extra"
+      src="oasis-hero.jpg"
+      alt="OASIS - Bono 30% Extra"
     >
+
   </div>
+
+
+  <!-- CTA -->
 
   <div class="cta-bar">
 
+
     <div class="ops">
+
       Operadores en línea ahora
+
     </div>
+
 
     <div class="bonus-line">
 
       <div class="label">
+
         BONO DE BIENVENIDA
+
       </div>
+
 
       <div class="value">
+
         30% EXTRA
+
       </div>
 
+
       <div class="sub">
+
         en tu primer depósito
+
       </div>
 
     </div>
+
 
     <button
       class="wa-btn"
       id="openChatBtn"
     >
 
+
+      <!-- ICONO WHATSAPP -->
+
       <svg viewBox="0 0 24 24">
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
 
       </svg>
 
-      Escribinos por WhatsApp
+
+      HABLÁ AHORA Y OBTENÉ TU BONO
+
 
     </button>
 
+
     <div class="footer-text">
+
       Respuesta inmediata • Atención 24 hs
+
     </div>
+
 
   </div>
 
 </div>
 
-<!-- Contenedor del ChatWeb -->
+
+<!-- =========================================================
+     CONTENEDOR CHATWEB
+     ========================================================= -->
+
 <div id="kommoChatFrame"></div>
 
-<!-- Botón cerrar -->
+
+<!-- =========================================================
+     BOTÓN CERRAR
+     ========================================================= -->
+
 <button id="kommoClose">
+
   ✕
+
 </button>
+
+
+<!-- =========================================================
+     JAVASCRIPT CHATWEB
+     ========================================================= -->
 
 <script>
 
+
 const frame =
-  document.getElementById('kommoChatFrame');
+  document.getElementById(
+    'kommoChatFrame'
+  );
+
 
 const closeBtn =
-  document.getElementById('kommoClose');
+  document.getElementById(
+    'kommoClose'
+  );
+
 
 const openBtn =
-  document.getElementById('openChatBtn');
+  document.getElementById(
+    'openChatBtn'
+  );
+
 
 let ready = false;
 
 
-// =========================================================
-// ABRIR CHAT
-// =========================================================
+/* =========================================================
+   ABRIR CHAT REAL
+   ========================================================= */
 
 function openReal(){
 
-  frame.classList.add('is-open');
+  frame.classList.add(
+    'is-open'
+  );
 
-  closeBtn.classList.add('is-open');
+
+  closeBtn.classList.add(
+    'is-open'
+  );
+
 
   try{
 
-    crmPlugin('runChatShow');
+    crmPlugin(
+      'runChatShow'
+    );
 
-    console.log('✅ ChatWeb Kommo abierto automáticamente');
+
+    console.log(
+      '✅ ChatWeb Kommo abierto'
+    );
+
 
   }catch(e){
 
@@ -446,9 +936,9 @@ function openReal(){
 }
 
 
-// =========================================================
-// ABRIR CHAT MANUALMENTE
-// =========================================================
+/* =========================================================
+   ABRIR CHAT MANUALMENTE
+   ========================================================= */
 
 function openChat(){
 
@@ -461,72 +951,95 @@ function openChat(){
 }
 
 
-// =========================================================
-// CERRAR CHAT
-// =========================================================
+/* =========================================================
+   CERRAR CHAT
+   ========================================================= */
 
 function closeChat(){
 
-  frame.classList.remove('is-open');
+  frame.classList.remove(
+    'is-open'
+  );
 
-  closeBtn.classList.remove('is-open');
+
+  closeBtn.classList.remove(
+    'is-open'
+  );
+
 
   try{
 
-    crmPlugin('runChatHide');
+    crmPlugin(
+      'runChatHide'
+    );
 
   }catch(e){}
 
 }
 
 
-// =========================================================
-// ESPERAR A QUE KOMMO ESTÉ LISTO
-// =========================================================
+/* =========================================================
+   ESPERAR A KOMMO
+   ========================================================= */
 
 function bind(){
 
-  if(typeof crmPlugin !== 'function'){
+  if(
+    typeof crmPlugin !==
+    'function'
+  ){
 
-    setTimeout(bind,150);
+    setTimeout(
+      bind,
+      150
+    );
 
     return;
 
   }
 
 
-  crmPlugin('onChatReady',function(){
+  crmPlugin(
+    'onChatReady',
+    function(){
 
-    ready = true;
-
-    console.log(
-      '✅ Kommo ChatWeb listo'
-    );
+      ready = true;
 
 
-    // =====================================================
-    // ABRIR AUTOMÁTICAMENTE AL CARGAR LA PÁGINA
-    // =====================================================
+      console.log(
+        '✅ Kommo ChatWeb listo'
+      );
 
-    setTimeout(function(){
 
-      openReal();
+      /*
+        ABRIR AUTOMÁTICAMENTE
+        AL ENTRAR A LA PÁGINA
+      */
 
-    },300);
+      setTimeout(
+        function(){
 
-  });
+          openReal();
+
+        },
+        300
+      );
+
+    }
+  );
 
 }
 
 
-// =========================================================
-// BOTONES
-// =========================================================
+/* =========================================================
+   BOTÓN
+   ========================================================= */
 
 openBtn.addEventListener(
   'click',
   openChat
 );
+
 
 closeBtn.addEventListener(
   'click',
@@ -534,15 +1047,15 @@ closeBtn.addEventListener(
 );
 
 
-// =========================================================
-// INICIAR KOMMO
-// =========================================================
+/* =========================================================
+   INICIAR
+   ========================================================= */
 
 bind();
 
+
 </script>
+
 
 </body>
 </html>
-```
-
