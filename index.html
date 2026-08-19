@@ -18,7 +18,7 @@
 
 
 <!-- =========================================================
-     CONFIGURACIÓN KOMMO
+     KOMMO - CONFIGURACIÓN
      ========================================================= -->
 
 <script>
@@ -52,7 +52,7 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     KOMMO
+     KOMMO CHATWEB
      ID: 1079149
      ========================================================= -->
 
@@ -107,14 +107,13 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     FACEBOOK PIXEL
-
+     META PIXEL
+     
      SOLO PAGEVIEW.
-
+     
      CONTACT NO SE DISPARA DESDE EL NAVEGADOR.
-
-     CONTACT VIENE EXCLUSIVAMENTE DESDE:
-
+     
+     CONTACT:
      KOMMO
        ↓
      CLOUDFLARE WORKER
@@ -124,82 +123,90 @@ window.crmPluginConfig = {
 
 <script>
 
-!function(f,b,e,v,n,t,s){
+(function(){
 
-  if(f.fbq)return;
+  'use strict';
 
-  n=f.fbq=function(){
+  if (window.fbq) {
 
-    n.callMethod ?
-      n.callMethod.apply(n,arguments) :
-      n.queue.push(arguments);
+    console.log(
+      '⚠️ Facebook Pixel ya estaba cargado'
+    );
 
-  };
+    return;
 
-  if(!f._fbq)
-    f._fbq=n;
-
-  n.push=n;
-
-  n.loaded=true;
-
-  n.version='2.0';
-
-  n.queue=[];
-
-  t=b.createElement(e);
-
-  t.async=true;
-
-  t.src=v;
-
-  s=b.getElementsByTagName(e)[0];
-
-  s.parentNode.insertBefore(t,s);
-
-}(
-  window,
-  document,
-  'script',
-  'https://connect.facebook.net/en_US/fbevents.js'
-);
+  }
 
 
-/* =========================================================
-   PIXEL TRIBET
+  !function(f,b,e,v,n,t,s){
 
-   SOLO PageView.
+    if(f.fbq)return;
 
-   NO Contact.
+    n=f.fbq=function(){
 
-   NO ClickWhatsAppButton.
+      n.callMethod ?
+        n.callMethod.apply(n,arguments) :
+        n.queue.push(arguments);
 
-   NO evento al abrir ChatWeb.
-   ========================================================= */
+    };
 
-fbq(
-  'init',
-  '1628936452188552'
-);
+    if(!f._fbq)
+      f._fbq=n;
+
+    n.push=n;
+
+    n.loaded=true;
+
+    n.version='2.0';
+
+    n.queue=[];
+
+    t=b.createElement(e);
+
+    t.async=true;
+
+    t.src=v;
+
+    s=b.getElementsByTagName(e)[0];
+
+    s.parentNode.insertBefore(t,s);
+
+  }(
+    window,
+    document,
+    'script',
+    'https://connect.facebook.net/en_US/fbevents.js'
+  );
 
 
-fbq(
-  'track',
-  'PageView'
-);
+  fbq(
+    'init',
+    '1628936452188552'
+  );
 
 
-console.log(
-  '✅ META PIXEL TRIBET CARGADO'
-);
+  fbq(
+    'track',
+    'PageView'
+  );
 
 
-console.log(
-  '✅ PAGEVIEW ENVIADO'
-);
+  console.log(
+    '✅ META PIXEL CARGADO'
+  );
+
+  console.log(
+    '✅ PAGEVIEW ENVIADO'
+  );
+
+})();
 
 </script>
 
+
+<!-- =========================================================
+     NOSCRIPT PAGEVIEW
+     ========================================================= -->
 
 <noscript>
 
@@ -214,11 +221,11 @@ console.log(
 </noscript>
 
 
-<!-- =========================================================
-     ESTILOS
-     ========================================================= -->
-
 <style>
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
 
@@ -230,6 +237,10 @@ console.log(
 
 }
 
+
+/* =========================================================
+   BODY
+   ========================================================= */
 
 html,
 body{
@@ -830,8 +841,6 @@ body{
       type="button"
     >
 
-      <!-- ICONO WHATSAPP -->
-
       <svg viewBox="0 0 24 24">
 
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -877,12 +886,11 @@ body{
 </button>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
 <script>
 
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
 
 const frame =
   document.getElementById(
@@ -903,8 +911,6 @@ const openBtn =
 
 
 let ready = false;
-
-let visitorSaved = false;
 
 
 /* =========================================================
@@ -976,23 +982,12 @@ function getFBC(){
     getCookie('_fbc');
 
 
-  /*
-   Si ya existe _fbc,
-   usamos ese valor.
-  */
-
   if(fbc){
 
     return fbc;
 
   }
 
-
-  /*
-   Si no existe _fbc pero
-   tenemos fbclid en la URL,
-   construimos el valor.
-  */
 
   const params =
     new URLSearchParams(
@@ -1011,21 +1006,12 @@ function getFBC(){
   }
 
 
-  /*
-   Formato Meta:
-   fb.1.TIMESTAMP.FBCLID
-  */
-
   fbc =
     'fb.1.' +
     Date.now() +
     '.' +
     fbclid;
 
-
-  /*
-   Guardamos _fbc.
-  */
 
   try{
 
@@ -1049,27 +1035,20 @@ function getFBC(){
 
 
 /* =========================================================
-   ENVIAR VISITANTE A CLOUDFLARE
+   ENVIAR VISITANTE AL WORKER
+     
+   El Worker obtiene:
+   - IP real
+   - User Agent real
 
-   Cloudflare obtiene automáticamente:
-
-   - IP REAL
-   - USER AGENT REAL
-
-   El navegador manda:
-
+   Y guarda:
    - FBP
    - FBC
+   - IP
+   - User Agent
    ========================================================= */
 
 async function sendVisitorDataToWorker(){
-
-  if(visitorSaved){
-
-    return;
-
-  }
-
 
   try{
 
@@ -1085,24 +1064,19 @@ async function sendVisitorDataToWorker(){
     );
 
     console.log(
-      '🔎 ENVIANDO VISITANTE TRIBET AL WORKER'
+      '🔎 ENVIANDO VISITANTE AL WORKER'
     );
 
     console.log(
-      '🔎 FBP:',
+      'FBP:',
       fbp || 'NO DISPONIBLE'
     );
 
     console.log(
-      '🔎 FBC:',
+      'FBC:',
       fbc || 'NO DISPONIBLE'
     );
 
-
-    /*
-     No enviamos nada si todavía
-     no existe FBP ni FBC.
-    */
 
     if(
       !fbp &&
@@ -1110,7 +1084,7 @@ async function sendVisitorDataToWorker(){
     ){
 
       console.log(
-        '⚠️ Todavía no hay FBP/FBC'
+        '⚠️ NO HAY FBP/FBC'
       );
 
       return;
@@ -1150,48 +1124,36 @@ async function sendVisitorDataToWorker(){
 
 
     console.log(
-      '📡 TRIBET WORKER /visitor STATUS:',
+      '📡 WORKER /visitor STATUS:',
       response.status
     );
 
 
     console.log(
-      '📡 TRIBET WORKER /visitor RESPONSE:',
+      '📡 WORKER /visitor RESPONSE:',
       result
     );
 
 
     if(response.ok){
 
-      visitorSaved = true;
-
       console.log(
-        '✅ VISITANTE TRIBET GUARDADO EN CLOUDFLARE'
+        '✅ VISITANTE ENVIADO AL WORKER'
       );
 
     }else{
 
       console.log(
-        '⚠️ TRIBET WORKER RESPONDIÓ CON ERROR'
+        '⚠️ ERROR EN /visitor'
       );
 
     }
 
 
-    console.log(
-      '========================================'
-    );
-
-
   }catch(error){
 
-    /*
-     Si falla Cloudflare,
-     NO bloqueamos el ChatWeb.
-    */
-
     console.error(
-      '❌ ERROR ENVIANDO VISITANTE TRIBET AL WORKER:',
+      '❌ ERROR ENVIANDO VISITANTE AL WORKER:',
       error
     );
 
@@ -1201,60 +1163,47 @@ async function sendVisitorDataToWorker(){
 
 
 /* =========================================================
-   INTENTAR GUARDAR VISITANTE
+   ENVIAR FBP / FBC DIRECTAMENTE AL CONTACTO DE KOMMO
 
-   Esperamos 1.2 segundos para darle tiempo
-   al Pixel a crear _fbp.
+   IMPORTANTE:
+
+   NO usamos bot_params.
+
+   Usamos:
+
+   contact.custom_fields
+
+   porque el Worker después consulta:
+
+   /api/v4/contacts/{contactId}
+
+   y busca estos campos.
+
+   FBP = 152722
+   FBC = 152724
    ========================================================= */
 
-setTimeout(
-  function(){
-
-    sendVisitorDataToWorker();
-
-  },
-  1200
-);
-
-
-/* =========================================================
-   ENVIAR FBP / FBC A KOMMO
-
-   Campos existentes de TRIBET:
-
-   FBP = bot_params.fbp
-   FBC = bot_params.fbc
-
-   Se mantiene el sistema que ya
-   utiliza este ChatWeb.
-   ========================================================= */
-
-function sendMetaDataToKommo(){
+function sendMetaAttributionToKommo(){
 
   try{
 
-    const fbp =
-      getFBP();
+    if(
+      typeof crm_plugin ===
+      'undefined'
+    ){
 
-    const fbc =
-      getFBC();
+      console.log(
+        '⚠️ crm_plugin todavía no disponible'
+      );
 
+      return;
 
-    console.log(
-      '🔎 META FBP:',
-      fbp || 'NO DISPONIBLE'
-    );
-
-
-    console.log(
-      '🔎 META FBC:',
-      fbc || 'NO DISPONIBLE'
-    );
+    }
 
 
     if(
-      typeof crm_plugin === 'undefined' ||
-      typeof crm_plugin.setMeta !== 'function'
+      typeof crm_plugin.setMeta !==
+      'function'
     ){
 
       console.log(
@@ -1266,32 +1215,90 @@ function sendMetaDataToKommo(){
     }
 
 
-    const botParams = {};
+    const fbp =
+      getFBP();
 
+
+    const fbc =
+      getFBC();
+
+
+    console.log(
+      '========================================'
+    );
+
+    console.log(
+      '🔎 DATOS META PARA KOMMO'
+    );
+
+    console.log(
+      'FBP:',
+      fbp || 'NO DISPONIBLE'
+    );
+
+    console.log(
+      'FBC:',
+      fbc || 'NO DISPONIBLE'
+    );
+
+
+    const customFields = [];
+
+
+    /* =====================================================
+       FBP TRIBET
+       ID: 152722
+       ===================================================== */
 
     if(fbp){
 
-      botParams.fbp =
-        fbp;
+      customFields.push({
+
+        id: 152722,
+
+        values: [
+
+          {
+            value: String(fbp)
+          }
+
+        ]
+
+      });
 
     }
 
 
+    /* =====================================================
+       FBC TRIBET
+       ID: 152724
+       ===================================================== */
+
     if(fbc){
 
-      botParams.fbc =
-        fbc;
+      customFields.push({
+
+        id: 152724,
+
+        values: [
+
+          {
+            value: String(fbc)
+          }
+
+        ]
+
+      });
 
     }
 
 
     if(
-      !botParams.fbp &&
-      !botParams.fbc
+      customFields.length === 0
     ){
 
       console.log(
-        '⚠️ No hay FBP/FBC disponibles'
+        '⚠️ NO HAY FBP/FBC PARA ENVIAR A KOMMO'
       );
 
       return;
@@ -1299,29 +1306,41 @@ function sendMetaDataToKommo(){
     }
 
 
+    /* =====================================================
+       GUARDAR EN EL CONTACTO DE KOMMO
+       ===================================================== */
+
     crm_plugin.setMeta({
 
-      bot_params:
-        botParams
+      contact: {
+
+        custom_fields:
+          customFields
+
+      }
 
     });
 
 
     console.log(
-      '✅ FBP/FBC enviados a Kommo como bot_params'
+      '✅ FBP/FBC ENVIADOS A KOMMO COMO CUSTOM FIELDS'
     );
 
 
     console.log(
-      '📦 BOT PARAMS:',
-      botParams
+      '📦 CUSTOM FIELDS:',
+      JSON.stringify(
+        customFields,
+        null,
+        2
+      )
     );
 
 
   }catch(error){
 
     console.error(
-      '❌ Error enviando bot_params:',
+      '❌ ERROR ENVIANDO FBP/FBC A KOMMO:',
       error
     );
 
@@ -1349,22 +1368,16 @@ function openReal(){
   try{
 
     /*
-     Guardamos primero el visitante
-     en Cloudflare.
+      PRIMERO:
+      guardar FBP/FBC en Kommo
     */
 
-    sendVisitorDataToWorker();
+    sendMetaAttributionToKommo();
 
 
     /*
-     Enviamos FBP/FBC a Kommo.
-    */
-
-    sendMetaDataToKommo();
-
-
-    /*
-     Abrimos ChatWeb.
+      DESPUÉS:
+      abrir ChatWeb
     */
 
     crmPlugin(
@@ -1377,11 +1390,11 @@ function openReal(){
     );
 
 
-  }catch(e){
+  }catch(error){
 
     console.error(
-      '❌ Error abriendo ChatWeb:',
-      e
+      '❌ ERROR ABRIENDO CHATWEB:',
+      error
     );
 
   }
@@ -1390,22 +1403,23 @@ function openReal(){
 
 
 /* =========================================================
-   ABRIR CHAT MANUALMENTE
+   BOTÓN MANUAL
    ========================================================= */
 
 function openChat(){
 
-  if(ready){
-
-    openReal();
-
-  }else{
+  if(!ready){
 
     console.log(
       '⏳ Kommo todavía no está listo'
     );
 
+    return;
+
   }
+
+
+  openReal();
 
 }
 
@@ -1432,7 +1446,7 @@ function closeChat(){
       'runChatHide'
     );
 
-  }catch(e){}
+  }catch(error){}
 
 }
 
@@ -1471,34 +1485,30 @@ function bind(){
 
 
       console.log(
-        '✅ Kommo ChatWeb listo'
+        '✅ ChatWeb Kommo listo'
       );
 
 
-      /*
-       Intentamos guardar nuevamente
-       el visitante por si todavía
-       no estaba disponible.
-      */
+      /* =====================================================
+         PASO 1
+         GUARDAR VISITANTE EN CLOUDFLARE
+         ===================================================== */
 
       await sendVisitorDataToWorker();
 
 
-      /*
-       Enviamos FBP/FBC a Kommo.
-      */
+      /* =====================================================
+         PASO 2
+         GUARDAR FBP/FBC EN CONTACTO KOMMO
+         ===================================================== */
 
-      sendMetaDataToKommo();
+      sendMetaAttributionToKommo();
 
 
-      /*
-       IMPORTANTE:
-
-       El HTML original de TRIBET
-       abría automáticamente el chat.
-
-       Mantenemos ese comportamiento.
-      */
+      /* =====================================================
+         PASO 3
+         ABRIR CHAT
+         ===================================================== */
 
       setTimeout(
         function(){
