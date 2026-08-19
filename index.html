@@ -111,9 +111,10 @@ window.crmPluginConfig = {
      
      SOLO PAGEVIEW.
      
-     CONTACT NO SE DISPARA DESDE EL NAVEGADOR.
+     NO CONTACT DESDE EL NAVEGADOR.
      
      CONTACT:
+     
      KOMMO
        ↓
      CLOUDFLARE WORKER
@@ -126,6 +127,7 @@ window.crmPluginConfig = {
 (function(){
 
   'use strict';
+
 
   if (window.fbq) {
 
@@ -221,11 +223,11 @@ window.crmPluginConfig = {
 </noscript>
 
 
-<style>
+<!-- =========================================================
+     ESTILOS
+     ========================================================= -->
 
-/* =========================================================
-   RESET
-   ========================================================= */
+<style>
 
 *{
 
@@ -237,10 +239,6 @@ window.crmPluginConfig = {
 
 }
 
-
-/* =========================================================
-   BODY
-   ========================================================= */
 
 html,
 body{
@@ -267,10 +265,6 @@ body{
 }
 
 
-/* =========================================================
-   CONTENEDOR PRINCIPAL
-   ========================================================= */
-
 .wrapper{
 
   width:100%;
@@ -289,10 +283,6 @@ body{
 
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
 
 .hero{
 
@@ -324,10 +314,6 @@ body{
 }
 
 
-/* =========================================================
-   BARRA INFERIOR
-   ========================================================= */
-
 .cta-bar{
 
   position:relative;
@@ -350,10 +336,6 @@ body{
 
 }
 
-
-/* =========================================================
-   ESTADO ONLINE
-   ========================================================= */
 
 .ops{
 
@@ -396,10 +378,6 @@ body{
 
 }
 
-
-/* =========================================================
-   BONO
-   ========================================================= */
 
 .bonus-line{
 
@@ -458,10 +436,6 @@ body{
 
 }
 
-
-/* =========================================================
-   BOTÓN CHAT
-   ========================================================= */
 
 .wa-btn{
 
@@ -534,10 +508,6 @@ body{
 }
 
 
-/* =========================================================
-   TEXTO FINAL
-   ========================================================= */
-
 .footer-text{
 
   text-align:center;
@@ -550,10 +520,6 @@ body{
 
 }
 
-
-/* =========================================================
-   ANIMACIONES
-   ========================================================= */
 
 @keyframes shake{
 
@@ -1036,16 +1002,6 @@ function getFBC(){
 
 /* =========================================================
    ENVIAR VISITANTE AL WORKER
-     
-   El Worker obtiene:
-   - IP real
-   - User Agent real
-
-   Y guarda:
-   - FBP
-   - FBC
-   - IP
-   - User Agent
    ========================================================= */
 
 async function sendVisitorDataToWorker(){
@@ -1078,19 +1034,13 @@ async function sendVisitorDataToWorker(){
     );
 
 
-    if(
-      !fbp &&
-      !fbc
-    ){
+    /*
+      Aunque no exista FBP/FBC, enviamos
+      igualmente la visita al Worker.
 
-      console.log(
-        '⚠️ NO HAY FBP/FBC'
-      );
-
-      return;
-
-    }
-
+      Esto permite que el Worker registre
+      la visita y pueda asociarla posteriormente.
+    */
 
     const response =
       await fetch(
@@ -1163,24 +1113,12 @@ async function sendVisitorDataToWorker(){
 
 
 /* =========================================================
-   ENVIAR FBP / FBC DIRECTAMENTE AL CONTACTO DE KOMMO
-
-   IMPORTANTE:
-
-   NO usamos bot_params.
-
-   Usamos:
-
-   contact.custom_fields
-
-   porque el Worker después consulta:
-
-   /api/v4/contacts/{contactId}
-
-   y busca estos campos.
-
-   FBP = 152722
-   FBC = 152724
+   ENVIAR FBP / FBC A KOMMO
+     
+   TRIBET:
+     
+   FBP = 161526
+   FBC = 161528
    ========================================================= */
 
 function sendMetaAttributionToKommo(){
@@ -1228,7 +1166,7 @@ function sendMetaAttributionToKommo(){
     );
 
     console.log(
-      '🔎 DATOS META PARA KOMMO'
+      '🔎 DATOS META PARA KOMMO - TRIBET'
     );
 
     console.log(
@@ -1247,14 +1185,14 @@ function sendMetaAttributionToKommo(){
 
     /* =====================================================
        FBP TRIBET
-       ID: 152722
+       ID: 161526
        ===================================================== */
 
     if(fbp){
 
       customFields.push({
 
-        id: 152722,
+        id: 161526,
 
         values: [
 
@@ -1271,14 +1209,14 @@ function sendMetaAttributionToKommo(){
 
     /* =====================================================
        FBC TRIBET
-       ID: 152724
+       ID: 161528
        ===================================================== */
 
     if(fbc){
 
       customFields.push({
 
-        id: 152724,
+        id: 161528,
 
         values: [
 
@@ -1307,7 +1245,7 @@ function sendMetaAttributionToKommo(){
 
 
     /* =====================================================
-       GUARDAR EN EL CONTACTO DE KOMMO
+       GUARDAR EN CONTACTO KOMMO
        ===================================================== */
 
     crm_plugin.setMeta({
@@ -1323,7 +1261,7 @@ function sendMetaAttributionToKommo(){
 
 
     console.log(
-      '✅ FBP/FBC ENVIADOS A KOMMO COMO CUSTOM FIELDS'
+      '✅ FBP/FBC ENVIADOS A KOMMO'
     );
 
 
@@ -1368,16 +1306,10 @@ function openReal(){
   try{
 
     /*
-      PRIMERO:
-      guardar FBP/FBC en Kommo
-    */
+      Abrimos solamente el ChatWeb.
 
-    sendMetaAttributionToKommo();
-
-
-    /*
-      DESPUÉS:
-      abrir ChatWeb
+      El FBP/FBC ya fue enviado durante
+      la preparación del ChatWeb.
     */
 
     crmPlugin(
@@ -1417,6 +1349,14 @@ function openChat(){
     return;
 
   }
+
+
+  /*
+    Nos aseguramos de tener la atribución
+    antes de abrir el ChatWeb.
+  */
+
+  sendMetaAttributionToKommo();
 
 
   openReal();
@@ -1491,7 +1431,7 @@ function bind(){
 
       /* =====================================================
          PASO 1
-         GUARDAR VISITANTE EN CLOUDFLARE
+         ENVIAR VISITANTE AL WORKER
          ===================================================== */
 
       await sendVisitorDataToWorker();
@@ -1499,7 +1439,7 @@ function bind(){
 
       /* =====================================================
          PASO 2
-         GUARDAR FBP/FBC EN CONTACTO KOMMO
+         GUARDAR FBP/FBC EN KOMMO
          ===================================================== */
 
       sendMetaAttributionToKommo();
