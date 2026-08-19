@@ -110,16 +110,15 @@ window.crmPluginConfig = {
      META PIXEL
      
      SOLO PAGEVIEW.
-     
+
      NO CONTACT DESDE EL NAVEGADOR.
-     
+
      CONTACT:
-     
      KOMMO
-       ↓
-     CLOUDFLARE WORKER
-       ↓
-     META CONVERSIONS API
+        ↓
+     CLOUDFLARE
+        ↓
+     META CAPI
      ========================================================= -->
 
 <script>
@@ -127,7 +126,6 @@ window.crmPluginConfig = {
 (function(){
 
   'use strict';
-
 
   if (window.fbq) {
 
@@ -223,11 +221,11 @@ window.crmPluginConfig = {
 </noscript>
 
 
-<!-- =========================================================
-     ESTILOS
-     ========================================================= -->
-
 <style>
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
 
@@ -239,6 +237,10 @@ window.crmPluginConfig = {
 
 }
 
+
+/* =========================================================
+   BODY
+   ========================================================= */
 
 html,
 body{
@@ -265,6 +267,10 @@ body{
 }
 
 
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
 .wrapper{
 
   width:100%;
@@ -283,6 +289,10 @@ body{
 
 }
 
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
 
@@ -314,6 +324,10 @@ body{
 }
 
 
+/* =========================================================
+   BARRA INFERIOR
+   ========================================================= */
+
 .cta-bar{
 
   position:relative;
@@ -336,6 +350,10 @@ body{
 
 }
 
+
+/* =========================================================
+   ESTADO ONLINE
+   ========================================================= */
 
 .ops{
 
@@ -378,6 +396,10 @@ body{
 
 }
 
+
+/* =========================================================
+   BONO
+   ========================================================= */
 
 .bonus-line{
 
@@ -436,6 +458,10 @@ body{
 
 }
 
+
+/* =========================================================
+   BOTÓN CHAT
+   ========================================================= */
 
 .wa-btn{
 
@@ -508,6 +534,10 @@ body{
 }
 
 
+/* =========================================================
+   TEXTO FINAL
+   ========================================================= */
+
 .footer-text{
 
   text-align:center;
@@ -520,6 +550,10 @@ body{
 
 }
 
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
 
 @keyframes shake{
 
@@ -688,7 +722,7 @@ body{
 
 
 /* =========================================================
-   BOTÓN CERRAR CHAT
+   BOTÓN CERRAR
    ========================================================= */
 
 #kommoClose{
@@ -809,7 +843,7 @@ body{
 
       <svg viewBox="0 0 24 24">
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
 
       </svg>
 
@@ -880,15 +914,27 @@ let ready = false;
 
 
 /* =========================================================
-   WORKER CLOUDFLARE TRIBET
+   CONFIGURACIÓN TRIBET
    ========================================================= */
 
 const ATTRIBUTION_WORKER =
   'https://cold-tooth-b7b8.romiramirez9990.workers.dev/';
 
 
+/*
+   IDs DE CAMPOS PERSONALIZADOS DE TRIBET
+
+   FBP = 161526
+   FBC = 161528
+*/
+
+const KOMMO_FBP_FIELD_ID = 161526;
+
+const KOMMO_FBC_FIELD_ID = 161528;
+
+
 /* =========================================================
-   OBTENER COOKIE
+   COOKIE
    ========================================================= */
 
 function getCookie(name){
@@ -899,6 +945,7 @@ function getCookie(name){
   const cookies =
     document.cookie.split(';');
 
+
   for(
     let i = 0;
     i < cookies.length;
@@ -907,6 +954,7 @@ function getCookie(name){
 
     const cookie =
       cookies[i].trim();
+
 
     if(
       cookie.indexOf(prefix) === 0
@@ -922,13 +970,14 @@ function getCookie(name){
 
   }
 
+
   return null;
 
 }
 
 
 /* =========================================================
-   OBTENER FBP
+   FBP
    ========================================================= */
 
 function getFBP(){
@@ -939,7 +988,7 @@ function getFBP(){
 
 
 /* =========================================================
-   OBTENER / CREAR FBC
+   FBC
    ========================================================= */
 
 function getFBC(){
@@ -1020,7 +1069,7 @@ async function sendVisitorDataToWorker(){
     );
 
     console.log(
-      '🔎 ENVIANDO VISITANTE AL WORKER'
+      '🔎 VISITANTE TRIBET'
     );
 
     console.log(
@@ -1034,13 +1083,19 @@ async function sendVisitorDataToWorker(){
     );
 
 
-    /*
-      Aunque no exista FBP/FBC, enviamos
-      igualmente la visita al Worker.
+    if(
+      !fbp &&
+      !fbc
+    ){
 
-      Esto permite que el Worker registre
-      la visita y pueda asociarla posteriormente.
-    */
+      console.log(
+        '⚠️ NO HAY FBP/FBC'
+      );
+
+      return;
+
+    }
+
 
     const response =
       await fetch(
@@ -1074,13 +1129,13 @@ async function sendVisitorDataToWorker(){
 
 
     console.log(
-      '📡 WORKER /visitor STATUS:',
+      '📡 WORKER STATUS:',
       response.status
     );
 
 
     console.log(
-      '📡 WORKER /visitor RESPONSE:',
+      '📡 WORKER RESPONSE:',
       result
     );
 
@@ -1088,22 +1143,15 @@ async function sendVisitorDataToWorker(){
     if(response.ok){
 
       console.log(
-        '✅ VISITANTE ENVIADO AL WORKER'
-      );
-
-    }else{
-
-      console.log(
-        '⚠️ ERROR EN /visitor'
+        '✅ VISITANTE GUARDADO EN WORKER'
       );
 
     }
 
-
   }catch(error){
 
     console.error(
-      '❌ ERROR ENVIANDO VISITANTE AL WORKER:',
+      '❌ ERROR /visitor:',
       error
     );
 
@@ -1113,12 +1161,24 @@ async function sendVisitorDataToWorker(){
 
 
 /* =========================================================
-   ENVIAR FBP / FBC A KOMMO
-     
-   TRIBET:
-     
-   FBP = 161526
-   FBC = 161528
+   GUARDAR FBP/FBC EN CONTACTO KOMMO
+
+   MUY IMPORTANTE:
+
+   Esto se ejecuta ANTES de:
+
+   crmPlugin('runChatShow')
+
+   Kommo documenta:
+
+   crm_plugin.setMeta({
+     contact: {
+       custom_fields: [...]
+     }
+   })
+
+   para pasar campos personalizados
+   al contacto asociado al chat.
    ========================================================= */
 
 function sendMetaAttributionToKommo(){
@@ -1134,7 +1194,7 @@ function sendMetaAttributionToKommo(){
         '⚠️ crm_plugin todavía no disponible'
       );
 
-      return;
+      return false;
 
     }
 
@@ -1148,7 +1208,7 @@ function sendMetaAttributionToKommo(){
         '⚠️ crm_plugin.setMeta no disponible'
       );
 
-      return;
+      return false;
 
     }
 
@@ -1166,7 +1226,7 @@ function sendMetaAttributionToKommo(){
     );
 
     console.log(
-      '🔎 DATOS META PARA KOMMO - TRIBET'
+      '🔎 ATRIBUCIÓN TRIBET → KOMMO'
     );
 
     console.log(
@@ -1184,7 +1244,7 @@ function sendMetaAttributionToKommo(){
 
 
     /* =====================================================
-       FBP TRIBET
+       FBP
        ID: 161526
        ===================================================== */
 
@@ -1192,12 +1252,16 @@ function sendMetaAttributionToKommo(){
 
       customFields.push({
 
-        id: 161526,
+        id:
+          KOMMO_FBP_FIELD_ID,
 
         values: [
 
           {
-            value: String(fbp)
+
+            value:
+              String(fbp)
+
           }
 
         ]
@@ -1208,7 +1272,7 @@ function sendMetaAttributionToKommo(){
 
 
     /* =====================================================
-       FBC TRIBET
+       FBC
        ID: 161528
        ===================================================== */
 
@@ -1216,12 +1280,16 @@ function sendMetaAttributionToKommo(){
 
       customFields.push({
 
-        id: 161528,
+        id:
+          KOMMO_FBC_FIELD_ID,
 
         values: [
 
           {
-            value: String(fbc)
+
+            value:
+              String(fbc)
+
           }
 
         ]
@@ -1236,19 +1304,15 @@ function sendMetaAttributionToKommo(){
     ){
 
       console.log(
-        '⚠️ NO HAY FBP/FBC PARA ENVIAR A KOMMO'
+        '⚠️ NO HAY DATOS PARA KOMMO'
       );
 
-      return;
+      return false;
 
     }
 
 
-    /* =====================================================
-       GUARDAR EN CONTACTO KOMMO
-       ===================================================== */
-
-    crm_plugin.setMeta({
+    const metaPayload = {
 
       contact: {
 
@@ -1257,30 +1321,47 @@ function sendMetaAttributionToKommo(){
 
       }
 
-    });
+    };
 
 
     console.log(
-      '✅ FBP/FBC ENVIADOS A KOMMO'
+      '📦 PAYLOAD KOMMO:'
     );
 
-
     console.log(
-      '📦 CUSTOM FIELDS:',
       JSON.stringify(
-        customFields,
+        metaPayload,
         null,
         2
       )
     );
 
 
+    /*
+      ENVIAMOS LOS CAMPOS AL CONTACTO
+    */
+
+    crm_plugin.setMeta(
+      metaPayload
+    );
+
+
+    console.log(
+      '✅ FBP/FBC ENVIADOS A CRM_PLUGIN'
+    );
+
+
+    return true;
+
+
   }catch(error){
 
     console.error(
-      '❌ ERROR ENVIANDO FBP/FBC A KOMMO:',
+      '❌ ERROR setMeta KOMMO:',
       error
     );
+
+    return false;
 
   }
 
@@ -1292,6 +1373,17 @@ function sendMetaAttributionToKommo(){
    ========================================================= */
 
 function openReal(){
+
+  if(!ready){
+
+    console.log(
+      '⏳ Kommo todavía no está listo'
+    );
+
+    return;
+
+  }
+
 
   frame.classList.add(
     'is-open'
@@ -1306,26 +1398,61 @@ function openReal(){
   try{
 
     /*
-      Abrimos solamente el ChatWeb.
-
-      El FBP/FBC ya fue enviado durante
-      la preparación del ChatWeb.
+      =====================================================
+      PASO 1
+      ENVIAR FBP/FBC A KOMMO
+      =====================================================
     */
 
-    crmPlugin(
-      'runChatShow'
-    );
+    const attributionSaved =
+      sendMetaAttributionToKommo();
 
 
-    console.log(
-      '✅ ChatWeb Kommo abierto'
+    /*
+      =====================================================
+      PASO 2
+      PEQUEÑA ESPERA PARA QUE EL PLUGIN
+      PROCESE LOS METADATOS
+      =====================================================
+    */
+
+    setTimeout(
+
+      function(){
+
+        try{
+
+          crmPlugin(
+            'runChatShow'
+          );
+
+
+          console.log(
+            '✅ CHATWEB KOMMO ABIERTO'
+          );
+
+        }catch(error){
+
+          console.error(
+            '❌ ERROR runChatShow:',
+            error
+          );
+
+        }
+
+      },
+
+      attributionSaved
+        ? 500
+        : 100
+
     );
 
 
   }catch(error){
 
     console.error(
-      '❌ ERROR ABRIENDO CHATWEB:',
+      '❌ ERROR ABRIENDO CHAT:',
       error
     );
 
@@ -1339,25 +1466,6 @@ function openReal(){
    ========================================================= */
 
 function openChat(){
-
-  if(!ready){
-
-    console.log(
-      '⏳ Kommo todavía no está listo'
-    );
-
-    return;
-
-  }
-
-
-  /*
-    Nos aseguramos de tener la atribución
-    antes de abrir el ChatWeb.
-  */
-
-  sendMetaAttributionToKommo();
-
 
   openReal();
 
@@ -1413,7 +1521,7 @@ function bind(){
 
 
   console.log(
-    '⏳ Esperando ChatWeb Kommo...'
+    '⏳ ESPERANDO CHATWEB KOMMO...'
   );
 
 
@@ -1425,38 +1533,48 @@ function bind(){
 
 
       console.log(
-        '✅ ChatWeb Kommo listo'
+        '✅ CHATWEB KOMMO LISTO'
       );
 
 
-      /* =====================================================
-         PASO 1
-         ENVIAR VISITANTE AL WORKER
-         ===================================================== */
+      /*
+        ===================================================
+        PASO 1
+        OBTENER Y GUARDAR ATRIBUCIÓN EN WORKER
+        ===================================================
+      */
 
       await sendVisitorDataToWorker();
 
 
-      /* =====================================================
-         PASO 2
-         GUARDAR FBP/FBC EN KOMMO
-         ===================================================== */
+      /*
+        ===================================================
+        PASO 2
+        CARGAR FBP/FBC EN KOMMO
+        ANTES DE ABRIR EL CHAT
+        ===================================================
+      */
 
       sendMetaAttributionToKommo();
 
 
-      /* =====================================================
-         PASO 3
-         ABRIR CHAT
-         ===================================================== */
+      /*
+        ===================================================
+        PASO 3
+        ABRIR CHAT
+        ===================================================
+      */
 
       setTimeout(
+
         function(){
 
           openReal();
 
         },
-        300
+
+        500
+
       );
 
     }
