@@ -53,6 +53,7 @@ window.crmPluginConfig = {
 
 <!-- =========================================================
      KOMMO
+     ID: 1079149
      ========================================================= -->
 
 <script>
@@ -107,13 +108,13 @@ window.crmPluginConfig = {
 
 <!-- =========================================================
      FACEBOOK PIXEL
-     
+
      SOLO PAGEVIEW.
-     
+
      CONTACT NO SE DISPARA DESDE EL NAVEGADOR.
-     
+
      CONTACT VIENE EXCLUSIVAMENTE DESDE:
-     
+
      KOMMO
        ↓
      CLOUDFLARE WORKER
@@ -164,21 +165,17 @@ window.crmPluginConfig = {
 );
 
 
-/*
-  =========================================================
-  PIXEL OASIS
-  =========================================================
+/* =========================================================
+   PIXEL TRIBET
 
-  SOLO PageView.
+   SOLO PageView.
 
-  NO Contact.
+   NO Contact.
 
-  NO ClickWhatsAppButton.
+   NO ClickWhatsAppButton.
 
-  NO evento al abrir el ChatWeb.
-
-  =========================================================
-*/
+   NO evento al abrir ChatWeb.
+   ========================================================= */
 
 fbq(
   'init',
@@ -191,6 +188,16 @@ fbq(
   'PageView'
 );
 
+
+console.log(
+  '✅ META PIXEL TRIBET CARGADO'
+);
+
+
+console.log(
+  '✅ PAGEVIEW ENVIADO'
+);
+
 </script>
 
 
@@ -201,6 +208,7 @@ fbq(
     width="1"
     style="display:none"
     src="https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1"
+    alt=""
   >
 
 </noscript>
@@ -819,6 +827,7 @@ body{
     <button
       class="wa-btn"
       id="openChatBtn"
+      type="button"
     >
 
       <!-- ICONO WHATSAPP -->
@@ -857,7 +866,11 @@ body{
      BOTÓN CERRAR
      ========================================================= -->
 
-<button id="kommoClose">
+<button
+  id="kommoClose"
+  type="button"
+  aria-label="Cerrar chat"
+>
 
   ✕
 
@@ -865,7 +878,7 @@ body{
 
 
 <!-- =========================================================
-     JAVASCRIPT CHATWEB
+     JAVASCRIPT
      ========================================================= -->
 
 <script>
@@ -891,44 +904,329 @@ const openBtn =
 
 let ready = false;
 
+let visitorSaved = false;
+
 
 /* =========================================================
-   OBTENER COOKIE META
+   WORKER CLOUDFLARE TRIBET
+   ========================================================= */
+
+const ATTRIBUTION_WORKER =
+  'https://cold-tooth-b7b8.romiramirez9990.workers.dev/';
+
+
+/* =========================================================
+   OBTENER COOKIE
    ========================================================= */
 
 function getCookie(name){
 
-  const match =
-    document.cookie.match(
-      new RegExp(
-        '(^|;\\s*)' +
-        name.replace(
-          /[-[\]{}()*+?.,\\^$|#\s]/g,
-          '\\$&'
-        ) +
-        '=([^;]*)'
-      )
-    );
+  const prefix =
+    name + '=';
 
-  return match
-    ? decodeURIComponent(match[2])
-    : null;
+  const cookies =
+    document.cookie.split(';');
+
+  for(
+    let i = 0;
+    i < cookies.length;
+    i++
+  ){
+
+    const cookie =
+      cookies[i].trim();
+
+    if(
+      cookie.indexOf(prefix) === 0
+    ){
+
+      return decodeURIComponent(
+        cookie.substring(
+          prefix.length
+        )
+      );
+
+    }
+
+  }
+
+  return null;
 
 }
 
 
 /* =========================================================
-   ENVIAR FBP / FBC COMO BOT_PARAMS A KOMMO
-     
-   IMPORTANTE:
-   NO MODIFICA DIRECTAMENTE EL CONTACTO.
-     
-   Los parámetros quedan disponibles para el Salesbot
-   mediante:
-     
-   {{bot_params.fbp}}
-   {{bot_params.fbc}}
-     
+   OBTENER FBP
+   ========================================================= */
+
+function getFBP(){
+
+  return getCookie('_fbp');
+
+}
+
+
+/* =========================================================
+   OBTENER / CREAR FBC
+   ========================================================= */
+
+function getFBC(){
+
+  let fbc =
+    getCookie('_fbc');
+
+
+  /*
+   Si ya existe _fbc,
+   usamos ese valor.
+  */
+
+  if(fbc){
+
+    return fbc;
+
+  }
+
+
+  /*
+   Si no existe _fbc pero
+   tenemos fbclid en la URL,
+   construimos el valor.
+  */
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const fbclid =
+    params.get('fbclid');
+
+
+  if(!fbclid){
+
+    return null;
+
+  }
+
+
+  /*
+   Formato Meta:
+   fb.1.TIMESTAMP.FBCLID
+  */
+
+  fbc =
+    'fb.1.' +
+    Date.now() +
+    '.' +
+    fbclid;
+
+
+  /*
+   Guardamos _fbc.
+  */
+
+  try{
+
+    document.cookie =
+      '_fbc=' +
+      encodeURIComponent(fbc) +
+      '; path=/; max-age=7776000; SameSite=Lax';
+
+  }catch(error){
+
+    console.log(
+      '⚠️ No se pudo guardar _fbc'
+    );
+
+  }
+
+
+  return fbc;
+
+}
+
+
+/* =========================================================
+   ENVIAR VISITANTE A CLOUDFLARE
+
+   Cloudflare obtiene automáticamente:
+
+   - IP REAL
+   - USER AGENT REAL
+
+   El navegador manda:
+
+   - FBP
+   - FBC
+   ========================================================= */
+
+async function sendVisitorDataToWorker(){
+
+  if(visitorSaved){
+
+    return;
+
+  }
+
+
+  try{
+
+    const fbp =
+      getFBP();
+
+    const fbc =
+      getFBC();
+
+
+    console.log(
+      '========================================'
+    );
+
+    console.log(
+      '🔎 ENVIANDO VISITANTE TRIBET AL WORKER'
+    );
+
+    console.log(
+      '🔎 FBP:',
+      fbp || 'NO DISPONIBLE'
+    );
+
+    console.log(
+      '🔎 FBC:',
+      fbc || 'NO DISPONIBLE'
+    );
+
+
+    /*
+     No enviamos nada si todavía
+     no existe FBP ni FBC.
+    */
+
+    if(
+      !fbp &&
+      !fbc
+    ){
+
+      console.log(
+        '⚠️ Todavía no hay FBP/FBC'
+      );
+
+      return;
+
+    }
+
+
+    const response =
+      await fetch(
+        ATTRIBUTION_WORKER + 'visitor',
+        {
+
+          method:'POST',
+
+          headers:{
+            'Content-Type':
+              'application/json'
+          },
+
+          body:
+            JSON.stringify({
+
+              fbp:
+                fbp || null,
+
+              fbc:
+                fbc || null
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.text();
+
+
+    console.log(
+      '📡 TRIBET WORKER /visitor STATUS:',
+      response.status
+    );
+
+
+    console.log(
+      '📡 TRIBET WORKER /visitor RESPONSE:',
+      result
+    );
+
+
+    if(response.ok){
+
+      visitorSaved = true;
+
+      console.log(
+        '✅ VISITANTE TRIBET GUARDADO EN CLOUDFLARE'
+      );
+
+    }else{
+
+      console.log(
+        '⚠️ TRIBET WORKER RESPONDIÓ CON ERROR'
+      );
+
+    }
+
+
+    console.log(
+      '========================================'
+    );
+
+
+  }catch(error){
+
+    /*
+     Si falla Cloudflare,
+     NO bloqueamos el ChatWeb.
+    */
+
+    console.error(
+      '❌ ERROR ENVIANDO VISITANTE TRIBET AL WORKER:',
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   INTENTAR GUARDAR VISITANTE
+
+   Esperamos 1.2 segundos para darle tiempo
+   al Pixel a crear _fbp.
+   ========================================================= */
+
+setTimeout(
+  function(){
+
+    sendVisitorDataToWorker();
+
+  },
+  1200
+);
+
+
+/* =========================================================
+   ENVIAR FBP / FBC A KOMMO
+
+   Campos existentes de TRIBET:
+
+   FBP = bot_params.fbp
+   FBC = bot_params.fbc
+
+   Se mantiene el sistema que ya
+   utiliza este ChatWeb.
    ========================================================= */
 
 function sendMetaDataToKommo(){
@@ -936,21 +1234,21 @@ function sendMetaDataToKommo(){
   try{
 
     const fbp =
-      getCookie('_fbp');
+      getFBP();
 
     const fbc =
-      getCookie('_fbc');
+      getFBC();
 
 
     console.log(
       '🔎 META FBP:',
-      fbp
+      fbp || 'NO DISPONIBLE'
     );
 
 
     console.log(
       '🔎 META FBC:',
-      fbc
+      fbc || 'NO DISPONIBLE'
     );
 
 
@@ -968,25 +1266,21 @@ function sendMetaDataToKommo(){
     }
 
 
-    /*
-      =====================================================
-      ENVIAMOS SOLO LOS DATOS QUE REALMENTE EXISTEN
-      =====================================================
-    */
-
     const botParams = {};
 
 
     if(fbp){
 
-      botParams.fbp = fbp;
+      botParams.fbp =
+        fbp;
 
     }
 
 
     if(fbc){
 
-      botParams.fbc = fbc;
+      botParams.fbc =
+        fbc;
 
     }
 
@@ -1005,15 +1299,10 @@ function sendMetaDataToKommo(){
     }
 
 
-    /*
-      =====================================================
-      SETMETA → BOT_PARAMS
-      =====================================================
-    */
-
     crm_plugin.setMeta({
 
-      bot_params: botParams
+      bot_params:
+        botParams
 
     });
 
@@ -1031,7 +1320,7 @@ function sendMetaDataToKommo(){
 
   }catch(error){
 
-    console.log(
+    console.error(
       '❌ Error enviando bot_params:',
       error
     );
@@ -1060,18 +1349,22 @@ function openReal(){
   try{
 
     /*
-      =====================================================
-      ENVIAR FBP/FBC ANTES DE INICIAR EL CHAT
-      =====================================================
+     Guardamos primero el visitante
+     en Cloudflare.
+    */
+
+    sendVisitorDataToWorker();
+
+
+    /*
+     Enviamos FBP/FBC a Kommo.
     */
 
     sendMetaDataToKommo();
 
 
     /*
-      =====================================================
-      ABRIR CHAT REAL
-      =====================================================
+     Abrimos ChatWeb.
     */
 
     crmPlugin(
@@ -1086,7 +1379,7 @@ function openReal(){
 
   }catch(e){
 
-    console.log(
+    console.error(
       '❌ Error abriendo ChatWeb:',
       e
     );
@@ -1105,6 +1398,12 @@ function openChat(){
   if(ready){
 
     openReal();
+
+  }else{
+
+    console.log(
+      '⏳ Kommo todavía no está listo'
+    );
 
   }
 
@@ -1159,9 +1458,14 @@ function bind(){
   }
 
 
+  console.log(
+    '⏳ Esperando ChatWeb Kommo...'
+  );
+
+
   crmPlugin(
     'onChatReady',
-    function(){
+    async function(){
 
       ready = true;
 
@@ -1172,8 +1476,28 @@ function bind(){
 
 
       /*
-        ABRIR AUTOMÁTICAMENTE
-        AL ENTRAR A LA PÁGINA
+       Intentamos guardar nuevamente
+       el visitante por si todavía
+       no estaba disponible.
+      */
+
+      await sendVisitorDataToWorker();
+
+
+      /*
+       Enviamos FBP/FBC a Kommo.
+      */
+
+      sendMetaDataToKommo();
+
+
+      /*
+       IMPORTANTE:
+
+       El HTML original de TRIBET
+       abría automáticamente el chat.
+
+       Mantenemos ese comportamiento.
       */
 
       setTimeout(
@@ -1192,7 +1516,7 @@ function bind(){
 
 
 /* =========================================================
-   BOTÓN
+   BOTONES
    ========================================================= */
 
 openBtn.addEventListener(
@@ -1212,7 +1536,6 @@ closeBtn.addEventListener(
    ========================================================= */
 
 bind();
-
 
 </script>
 
