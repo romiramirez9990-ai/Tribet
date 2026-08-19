@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -166,7 +167,7 @@ window.crmPluginConfig = {
 
 /*
   =========================================================
-  PIXEL OASIS
+  PIXEL TRIBET
   =========================================================
 
   SOLO PageView.
@@ -176,6 +177,8 @@ window.crmPluginConfig = {
   NO ClickWhatsAppButton.
 
   NO evento al abrir el ChatWeb.
+
+  CONTACT VIENE EXCLUSIVAMENTE DESDE CAPI.
 
   =========================================================
 */
@@ -190,6 +193,79 @@ fbq(
   'track',
   'PageView'
 );
+
+
+/*
+  =========================================================
+  CAPTURA FBP / FBC
+  =========================================================
+
+  _fbp = identificador del navegador generado por Meta.
+
+  _fbc = identificador asociado al click de Facebook,
+         cuando existe un parámetro fbclid.
+
+  NO SE INVENTAN VALORES.
+
+  Si no existen, se envía null.
+
+  =========================================================
+*/
+
+function getCookie(name) {
+
+  const match = document.cookie.match(
+    new RegExp(
+      '(^|;\\s*)' +
+      name.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') +
+      '=([^;]*)'
+    )
+  );
+
+  return match
+    ? decodeURIComponent(match[2])
+    : null;
+}
+
+
+function getMetaTrackingData() {
+
+  const fbp = getCookie('_fbp');
+
+  const fbc = getCookie('_fbc');
+
+  return {
+
+    fbp: fbp || null,
+
+    fbc: fbc || null
+
+  };
+
+}
+
+
+/*
+  =========================================================
+  GUARDAR DATOS META
+  =========================================================
+*/
+
+const metaTracking =
+  getMetaTrackingData();
+
+
+console.log(
+  'META FBP:',
+  metaTracking.fbp
+);
+
+
+console.log(
+  'META FBC:',
+  metaTracking.fbc
+);
+
 
 </script>
 
@@ -752,7 +828,6 @@ body{
 
 }
 
-
 </style>
 
 </head>
@@ -999,6 +1074,52 @@ function bind(){
   }
 
 
+  /*
+    =========================================================
+    PASAR FBP / FBC A KOMMO
+    =========================================================
+
+    Lo hacemos cuando Kommo ya está disponible.
+
+    NO generamos valores falsos.
+
+    Si Meta no creó alguno de los identificadores,
+    simplemente se envía null.
+
+    =========================================================
+  */
+
+  const metaTracking =
+    getMetaTrackingData();
+
+
+  try{
+
+    crmPlugin(
+      'setMeta',
+      {
+        fbp: metaTracking.fbp,
+        fbc: metaTracking.fbc
+      }
+    );
+
+
+    console.log(
+      '✅ FBP/FBC enviados a metadata de Kommo',
+      metaTracking
+    );
+
+
+  }catch(e){
+
+    console.log(
+      '❌ No se pudo enviar FBP/FBC a Kommo:',
+      e
+    );
+
+  }
+
+
   crmPlugin(
     'onChatReady',
     function(){
@@ -1059,3 +1180,4 @@ bind();
 
 </body>
 </html>
+```
