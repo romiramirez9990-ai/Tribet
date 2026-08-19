@@ -14,7 +14,7 @@
   content="#08040d"
 >
 
-<title>TRIBET - Bono 30% Extra</title>
+<title>TRIBET - Bono 30%</title>
 
 
 <!-- =========================================================
@@ -52,8 +52,8 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     KOMMO CHATWEB
-     ID: 1079149
+     KOMMO - CHATWEB
+     ID TRIBET: 1079149
      ========================================================= -->
 
 <script>
@@ -107,18 +107,8 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     META PIXEL
-     
-     SOLO PAGEVIEW.
-
-     NO CONTACT DESDE EL NAVEGADOR.
-
-     CONTACT:
-     KOMMO
-        ↓
-     CLOUDFLARE
-        ↓
-     META CAPI
+     META PIXEL TRIBET
+     SOLO PAGEVIEW
      ========================================================= -->
 
 <script>
@@ -145,7 +135,10 @@ window.crmPluginConfig = {
     n=f.fbq=function(){
 
       n.callMethod ?
-        n.callMethod.apply(n,arguments) :
+        n.callMethod.apply(
+          n,
+          arguments
+        ) :
         n.queue.push(arguments);
 
     };
@@ -192,11 +185,11 @@ window.crmPluginConfig = {
 
 
   console.log(
-    '✅ META PIXEL CARGADO'
+    '✅ META PIXEL TRIBET CARGADO'
   );
 
   console.log(
-    '✅ PAGEVIEW ENVIADO'
+    '✅ PAGEVIEW TRIBET ENVIADO'
   );
 
 })();
@@ -205,7 +198,7 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     NOSCRIPT PAGEVIEW
+     NOSCRIPT
      ========================================================= -->
 
 <noscript>
@@ -228,13 +221,9 @@ window.crmPluginConfig = {
    ========================================================= */
 
 *{
-
   margin:0;
-
   padding:0;
-
   box-sizing:border-box;
-
 }
 
 
@@ -268,7 +257,7 @@ body{
 
 
 /* =========================================================
-   CONTENEDOR PRINCIPAL
+   WRAPPER
    ========================================================= */
 
 .wrapper{
@@ -325,22 +314,19 @@ body{
 
 
 /* =========================================================
-   BARRA INFERIOR
+   CTA
    ========================================================= */
 
 .cta-bar{
 
-  position:relative;
-
   background:
-
     linear-gradient(
       180deg,
       #160b20 0%,
       #09040d 100%
     );
 
-  padding:12px 16px 18px;
+  padding:14px 18px 20px;
 
   border-top:
     1px solid
@@ -352,7 +338,7 @@ body{
 
 
 /* =========================================================
-   ESTADO ONLINE
+   OPERADORES
    ========================================================= */
 
 .ops{
@@ -365,13 +351,13 @@ body{
 
   gap:8px;
 
-  margin-bottom:10px;
-
-  font-size:12px;
+  font-size:13px;
 
   color:#e4c45d;
 
   font-weight:700;
+
+  margin-bottom:12px;
 
 }
 
@@ -380,13 +366,13 @@ body{
 
   content:'';
 
-  width:7px;
+  width:8px;
 
-  height:7px;
-
-  border-radius:50%;
+  height:8px;
 
   background:#D4AF37;
+
+  border-radius:50%;
 
   box-shadow:
     0 0 8px
@@ -398,74 +384,10 @@ body{
 
 
 /* =========================================================
-   BONO
-   ========================================================= */
-
-.bonus-line{
-
-  text-align:center;
-
-  margin-bottom:11px;
-
-}
-
-
-.bonus-line .label{
-
-  font-size:10px;
-
-  letter-spacing:1.8px;
-
-  color:#c9a94d;
-
-  text-transform:uppercase;
-
-  font-weight:700;
-
-}
-
-
-.bonus-line .value{
-
-  font-size:25px;
-
-  line-height:1.05;
-
-  font-weight:950;
-
-  color:#FFD75A;
-
-  text-shadow:
-
-    0 0 8px
-    rgba(255,215,90,0.35),
-
-    0 0 20px
-    rgba(212,175,55,0.25);
-
-  animation:glowText 2.4s ease-in-out infinite;
-
-}
-
-
-.bonus-line .sub{
-
-  margin-top:2px;
-
-  font-size:11px;
-
-  color:#bcaec8;
-
-}
-
-
-/* =========================================================
-   BOTÓN CHAT
+   BOTÓN
    ========================================================= */
 
 .wa-btn{
-
-  width:100%;
 
   display:flex;
 
@@ -475,16 +397,7 @@ body{
 
   gap:10px;
 
-  padding:15px 18px;
-
-  border:0;
-
-  border-radius:14px;
-
-  cursor:pointer;
-
   background:
-
     linear-gradient(
       135deg,
       #D4AF37 0%,
@@ -494,20 +407,27 @@ body{
 
   color:#160b20;
 
+  border:none;
+
+  border-radius:14px;
+
+  padding:16px 20px;
+
   font-size:16px;
 
   font-weight:900;
 
-  box-shadow:
+  width:100%;
 
-    0 7px 24px
-    rgba(212,175,55,0.38);
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 28px
+    rgba(212,175,55,0.45);
 
   animation:
-
-    shake 3s ease-in-out infinite,
-
-    glowBtn 2.2s ease-in-out infinite;
+    shake 2.8s ease-in-out infinite,
+    glowBtn 2s ease-in-out infinite;
 
 }
 
@@ -523,11 +443,9 @@ body{
 
 .wa-btn svg{
 
-  width:23px;
+  width:22px;
 
-  height:23px;
-
-  flex-shrink:0;
+  height:22px;
 
   fill:#160b20;
 
@@ -535,18 +453,18 @@ body{
 
 
 /* =========================================================
-   TEXTO FINAL
+   FOOTER
    ========================================================= */
 
 .footer-text{
 
   text-align:center;
 
-  margin-top:8px;
+  margin-top:10px;
 
-  font-size:10px;
+  font-size:11px;
 
-  color:#82768b;
+  color:#888;
 
 }
 
@@ -559,39 +477,27 @@ body{
 
   0%,
   100%{
-
     transform:translateX(0);
-
   }
 
   8%{
-
     transform:translateX(-3px);
-
   }
 
   16%{
-
     transform:translateX(3px);
-
   }
 
   24%{
-
     transform:translateX(-2px);
-
   }
 
   32%{
-
     transform:translateX(2px);
-
   }
 
   40%{
-
     transform:translateX(0);
-
   }
 
 }
@@ -603,45 +509,16 @@ body{
   100%{
 
     box-shadow:
-
-      0 7px 24px
-      rgba(212,175,55,0.38);
+      0 8px 28px
+      rgba(212,175,55,0.45);
 
   }
 
   50%{
 
     box-shadow:
-
-      0 8px 34px
-      rgba(212,175,55,0.65);
-
-  }
-
-}
-
-
-@keyframes glowText{
-
-  0%,
-  100%{
-
-    text-shadow:
-
-      0 0 8px
-      rgba(255,215,90,0.25);
-
-  }
-
-  50%{
-
-    text-shadow:
-
-      0 0 14px
-      rgba(255,215,90,0.55),
-
-      0 0 28px
-      rgba(212,175,55,0.25);
+      0 8px 36px
+      rgba(212,175,55,0.70);
 
   }
 
@@ -663,7 +540,7 @@ body{
 
     opacity:0.45;
 
-    transform:scale(0.8);
+    transform:scale(0.85);
 
   }
 
@@ -671,7 +548,7 @@ body{
 
 
 /* =========================================================
-   CHATWEB KOMMO
+   CHATWEB
    ========================================================= */
 
 #kommoChatFrame{
@@ -684,16 +561,15 @@ body{
 
   height:100%;
 
-  background:rgba(0,0,0,0.96);
+  background:
+    rgba(0,0,0,0.96);
 
   visibility:hidden;
 
   opacity:0;
 
   transition:
-
     opacity 0.3s ease,
-
     visibility 0.3s ease;
 
   z-index:9999;
@@ -749,18 +625,13 @@ body{
 
   display:none;
 
-  align-items:center;
-
-  justify-content:center;
-
   z-index:10000;
 
   cursor:pointer;
 
-  box-shadow:
+  align-items:center;
 
-    0 4px 15px
-    rgba(0,0,0,0.4);
+  justify-content:center;
 
 }
 
@@ -786,52 +657,20 @@ body{
 <div class="wrapper">
 
 
-  <!-- HERO -->
-
   <div class="hero">
 
     <img
       src="tribet-hero-mobile.jpg"
-      alt="TRIBET - Bono 30% Extra"
+      alt="TRIBET - Bono 30%"
     >
 
   </div>
 
 
-  <!-- CTA -->
-
   <div class="cta-bar">
 
-
     <div class="ops">
-
       Operadores en línea ahora
-
-    </div>
-
-
-    <div class="bonus-line">
-
-      <div class="label">
-
-        BONO DE BIENVENIDA
-
-      </div>
-
-
-      <div class="value">
-
-        30% EXTRA
-
-      </div>
-
-
-      <div class="sub">
-
-        en tu primer depósito
-
-      </div>
-
     </div>
 
 
@@ -843,21 +682,18 @@ body{
 
       <svg viewBox="0 0 24 24">
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.51-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
 
       </svg>
 
-      HABLÁ AHORA Y OBTENÉ TU BONO
+      Hablá ahora y obtené tu bono
 
     </button>
 
 
     <div class="footer-text">
-
       Respuesta inmediata • Atención 24 hs
-
     </div>
-
 
   </div>
 
@@ -865,24 +701,18 @@ body{
 
 
 <!-- =========================================================
-     CONTENEDOR CHATWEB
+     CHATWEB
      ========================================================= -->
 
 <div id="kommoChatFrame"></div>
 
-
-<!-- =========================================================
-     BOTÓN CERRAR
-     ========================================================= -->
 
 <button
   id="kommoClose"
   type="button"
   aria-label="Cerrar chat"
 >
-
   ✕
-
 </button>
 
 
@@ -912,25 +742,15 @@ const openBtn =
 
 let ready = false;
 
+let visitorSaved = false;
+
 
 /* =========================================================
-   CONFIGURACIÓN TRIBET
+   WORKER TRIBET
    ========================================================= */
 
 const ATTRIBUTION_WORKER =
   'https://cold-tooth-b7b8.romiramirez9990.workers.dev/';
-
-
-/*
-   IDs DE CAMPOS PERSONALIZADOS DE TRIBET
-
-   FBP = 161526
-   FBC = 161528
-*/
-
-const KOMMO_FBP_FIELD_ID = 161526;
-
-const KOMMO_FBC_FIELD_ID = 161528;
 
 
 /* =========================================================
@@ -945,7 +765,6 @@ function getCookie(name){
   const cookies =
     document.cookie.split(';');
 
-
   for(
     let i = 0;
     i < cookies.length;
@@ -954,7 +773,6 @@ function getCookie(name){
 
     const cookie =
       cookies[i].trim();
-
 
     if(
       cookie.indexOf(prefix) === 0
@@ -969,7 +787,6 @@ function getCookie(name){
     }
 
   }
-
 
   return null;
 
@@ -1050,10 +867,17 @@ function getFBC(){
 
 
 /* =========================================================
-   ENVIAR VISITANTE AL WORKER
+   VISITANTE → CLOUDFLARE
    ========================================================= */
 
 async function sendVisitorDataToWorker(){
+
+  if(visitorSaved){
+
+    return;
+
+  }
+
 
   try{
 
@@ -1089,7 +913,7 @@ async function sendVisitorDataToWorker(){
     ){
 
       console.log(
-        '⚠️ NO HAY FBP/FBC'
+        '⚠️ TODAVÍA NO HAY FBP/FBC'
       );
 
       return;
@@ -1133,7 +957,6 @@ async function sendVisitorDataToWorker(){
       response.status
     );
 
-
     console.log(
       '📡 WORKER RESPONSE:',
       result
@@ -1141,6 +964,8 @@ async function sendVisitorDataToWorker(){
 
 
     if(response.ok){
+
+      visitorSaved = true;
 
       console.log(
         '✅ VISITANTE GUARDADO EN WORKER'
@@ -1151,7 +976,7 @@ async function sendVisitorDataToWorker(){
   }catch(error){
 
     console.error(
-      '❌ ERROR /visitor:',
+      '❌ ERROR WORKER VISITOR:',
       error
     );
 
@@ -1161,24 +986,11 @@ async function sendVisitorDataToWorker(){
 
 
 /* =========================================================
-   GUARDAR FBP/FBC EN CONTACTO KOMMO
+   ENVIAR FBP/FBC A KOMMO
 
-   MUY IMPORTANTE:
-
-   Esto se ejecuta ANTES de:
-
-   crmPlugin('runChatShow')
-
-   Kommo documenta:
-
-   crm_plugin.setMeta({
-     contact: {
-       custom_fields: [...]
-     }
-   })
-
-   para pasar campos personalizados
-   al contacto asociado al chat.
+   TRIBET:
+   FBP = 161526
+   FBC = 161528
    ========================================================= */
 
 function sendMetaAttributionToKommo(){
@@ -1243,25 +1055,18 @@ function sendMetaAttributionToKommo(){
     const customFields = [];
 
 
-    /* =====================================================
-       FBP
-       ID: 161526
-       ===================================================== */
+    /* FBP TRIBET */
 
     if(fbp){
 
       customFields.push({
 
-        id:
-          KOMMO_FBP_FIELD_ID,
+        id: 161526,
 
         values: [
 
           {
-
-            value:
-              String(fbp)
-
+            value: String(fbp)
           }
 
         ]
@@ -1271,25 +1076,18 @@ function sendMetaAttributionToKommo(){
     }
 
 
-    /* =====================================================
-       FBC
-       ID: 161528
-       ===================================================== */
+    /* FBC TRIBET */
 
     if(fbc){
 
       customFields.push({
 
-        id:
-          KOMMO_FBC_FIELD_ID,
+        id: 161528,
 
         values: [
 
           {
-
-            value:
-              String(fbc)
-
+            value: String(fbc)
           }
 
         ]
@@ -1304,7 +1102,7 @@ function sendMetaAttributionToKommo(){
     ){
 
       console.log(
-        '⚠️ NO HAY DATOS PARA KOMMO'
+        '⚠️ NO HAY FBP/FBC PARA KOMMO'
       );
 
       return false;
@@ -1312,7 +1110,7 @@ function sendMetaAttributionToKommo(){
     }
 
 
-    const metaPayload = {
+    const payload = {
 
       contact: {
 
@@ -1325,39 +1123,31 @@ function sendMetaAttributionToKommo(){
 
 
     console.log(
-      '📦 PAYLOAD KOMMO:'
-    );
-
-    console.log(
+      '📦 PAYLOAD KOMMO:',
       JSON.stringify(
-        metaPayload,
+        payload,
         null,
         2
       )
     );
 
 
-    /*
-      ENVIAMOS LOS CAMPOS AL CONTACTO
-    */
-
     crm_plugin.setMeta(
-      metaPayload
+      payload
     );
 
 
     console.log(
-      '✅ FBP/FBC ENVIADOS A CRM_PLUGIN'
+      '✅ FBP/FBC ENVIADOS A KOMMO'
     );
 
 
     return true;
 
-
   }catch(error){
 
     console.error(
-      '❌ ERROR setMeta KOMMO:',
+      '❌ ERROR ENVIANDO FBP/FBC A KOMMO:',
       error
     );
 
@@ -1369,21 +1159,38 @@ function sendMetaAttributionToKommo(){
 
 
 /* =========================================================
-   ABRIR CHAT REAL
+   ESPERAR A KOMMO Y ENVIAR ATRIBUCIÓN
    ========================================================= */
 
-function openReal(){
+function prepareKommoAttribution(){
 
-  if(!ready){
+  if(
+    typeof crm_plugin !==
+    'undefined' &&
+    typeof crm_plugin.setMeta ===
+    'function'
+  ){
 
-    console.log(
-      '⏳ Kommo todavía no está listo'
-    );
+    sendMetaAttributionToKommo();
 
     return;
 
   }
 
+
+  setTimeout(
+    prepareKommoAttribution,
+    200
+  );
+
+}
+
+
+/* =========================================================
+   ABRIR CHAT
+   ========================================================= */
+
+function openReal(){
 
   frame.classList.add(
     'is-open'
@@ -1398,56 +1205,22 @@ function openReal(){
   try{
 
     /*
-      =====================================================
-      PASO 1
-      ENVIAR FBP/FBC A KOMMO
-      =====================================================
+      IMPORTANTE:
+      Volvemos a enviar los datos
+      inmediatamente antes de abrir.
     */
 
-    const attributionSaved =
-      sendMetaAttributionToKommo();
+    sendMetaAttributionToKommo();
 
 
-    /*
-      =====================================================
-      PASO 2
-      PEQUEÑA ESPERA PARA QUE EL PLUGIN
-      PROCESE LOS METADATOS
-      =====================================================
-    */
-
-    setTimeout(
-
-      function(){
-
-        try{
-
-          crmPlugin(
-            'runChatShow'
-          );
-
-
-          console.log(
-            '✅ CHATWEB KOMMO ABIERTO'
-          );
-
-        }catch(error){
-
-          console.error(
-            '❌ ERROR runChatShow:',
-            error
-          );
-
-        }
-
-      },
-
-      attributionSaved
-        ? 500
-        : 100
-
+    crmPlugin(
+      'runChatShow'
     );
 
+
+    console.log(
+      '✅ CHATWEB TRIBET ABIERTO'
+    );
 
   }catch(error){
 
@@ -1462,10 +1235,21 @@ function openReal(){
 
 
 /* =========================================================
-   BOTÓN MANUAL
+   BOTÓN
    ========================================================= */
 
 function openChat(){
+
+  if(!ready){
+
+    console.log(
+      '⏳ KOMMO TODAVÍA NO ESTÁ LISTO'
+    );
+
+    return;
+
+  }
+
 
   openReal();
 
@@ -1473,7 +1257,7 @@ function openChat(){
 
 
 /* =========================================================
-   CERRAR CHAT
+   CERRAR
    ========================================================= */
 
 function closeChat(){
@@ -1500,7 +1284,7 @@ function closeChat(){
 
 
 /* =========================================================
-   ESPERAR A KOMMO
+   BIND KOMMO
    ========================================================= */
 
 function bind(){
@@ -1525,6 +1309,15 @@ function bind(){
   );
 
 
+  /*
+    PRIMER INTENTO:
+    enviamos FBP/FBC apenas
+    el plugin está disponible.
+  */
+
+  sendMetaAttributionToKommo();
+
+
   crmPlugin(
     'onChatReady',
     async function(){
@@ -1538,49 +1331,58 @@ function bind(){
 
 
       /*
-        ===================================================
-        PASO 1
-        OBTENER Y GUARDAR ATRIBUCIÓN EN WORKER
-        ===================================================
+        1. Guardar visitante
       */
 
       await sendVisitorDataToWorker();
 
 
       /*
-        ===================================================
-        PASO 2
-        CARGAR FBP/FBC EN KOMMO
-        ANTES DE ABRIR EL CHAT
-        ===================================================
+        2. Enviar atribución
+        a Kommo nuevamente
       */
 
       sendMetaAttributionToKommo();
 
 
       /*
-        ===================================================
-        PASO 3
-        ABRIR CHAT
-        ===================================================
+        3. Abrir chat
       */
 
       setTimeout(
-
         function(){
 
           openReal();
 
         },
-
-        500
-
+        300
       );
 
     }
   );
 
 }
+
+
+/* =========================================================
+   REINTENTO VISITANTE
+   ========================================================= */
+
+setTimeout(
+  function(){
+
+    sendVisitorDataToWorker();
+
+  },
+  1200
+);
+
+
+/* =========================================================
+   PREPARAR ATRIBUCIÓN
+   ========================================================= */
+
+prepareKommoAttribution();
 
 
 /* =========================================================
