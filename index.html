@@ -52,7 +52,7 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     KOMMO - CHATWEB TRIBET
+     KOMMO CHATWEB TRIBET
      ID: 1079149
      ========================================================= -->
 
@@ -109,9 +109,9 @@ window.crmPluginConfig = {
 <!-- =========================================================
      META PIXEL TRIBET
      
-     PAGEVIEW SOLAMENTE AL CARGAR.
+     PAGEVIEW AL CARGAR
      
-     CONTACT SE DISPARA AL ABRIR CHATWEB.
+     CONTACT AL ABRIR CHATWEB
      ========================================================= -->
 
 <script>
@@ -120,16 +120,9 @@ window.crmPluginConfig = {
 
   'use strict';
 
-  if (window.fbq) {
-
-    console.log(
-      '⚠️ Facebook Pixel ya estaba cargado'
-    );
-
-    return;
-
-  }
-
+  /*
+   * CARGAR PIXEL
+   */
 
   !function(f,b,e,v,n,t,s){
 
@@ -175,6 +168,10 @@ window.crmPluginConfig = {
   );
 
 
+  /*
+   * INICIALIZAR PIXEL TRIBET
+   */
+
   fbq(
     'init',
     '1628936452188552'
@@ -182,9 +179,7 @@ window.crmPluginConfig = {
 
 
   /*
-   * =====================================================
    * PAGEVIEW
-   * =====================================================
    */
 
   fbq(
@@ -194,11 +189,11 @@ window.crmPluginConfig = {
 
 
   console.log(
-    '✅ META PIXEL TRIBET CARGADO'
+    '✅ META PIXEL TRIBET INICIALIZADO'
   );
 
   console.log(
-    '✅ PAGEVIEW TRIBET ENVIADO'
+    '✅ PAGEVIEW ENVIADO'
   );
 
 })();
@@ -207,7 +202,7 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     NOSCRIPT PAGEVIEW
+     NOSCRIPT
      ========================================================= -->
 
 <noscript>
@@ -230,9 +225,13 @@ window.crmPluginConfig = {
    ========================================================= */
 
 *{
+
   margin:0;
+
   padding:0;
+
   box-sizing:border-box;
+
 }
 
 
@@ -329,6 +328,7 @@ body{
 .cta-bar{
 
   background:
+
     linear-gradient(
       180deg,
       #160b20 0%,
@@ -407,6 +407,7 @@ body{
   gap:10px;
 
   background:
+
     linear-gradient(
       135deg,
       #D4AF37 0%,
@@ -486,27 +487,39 @@ body{
 
   0%,
   100%{
+
     transform:translateX(0);
+
   }
 
   8%{
+
     transform:translateX(-3px);
+
   }
 
   16%{
+
     transform:translateX(3px);
+
   }
 
   24%{
+
     transform:translateX(-2px);
+
   }
 
   32%{
+
     transform:translateX(2px);
+
   }
 
   40%{
+
     transform:translateX(0);
+
   }
 
 }
@@ -557,7 +570,7 @@ body{
 
 
 /* =========================================================
-   CHATWEB KOMMO
+   CHATWEB
    ========================================================= */
 
 #kommoChatFrame{
@@ -578,8 +591,8 @@ body{
   opacity:0;
 
   transition:
-    opacity 0.15s ease,
-    visibility 0.15s ease;
+    opacity 0.1s ease,
+    visibility 0.1s ease;
 
   z-index:9999;
 
@@ -679,7 +692,9 @@ body{
   <div class="cta-bar">
 
     <div class="ops">
+
       Operadores en línea ahora
+
     </div>
 
 
@@ -691,7 +706,7 @@ body{
 
       <svg viewBox="0 0 24 24">
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371.025-.52.075-.149-.669-1.612-.916-2.207-.242-.51-.487-.51-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.51-.487-.51-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
 
       </svg>
 
@@ -701,7 +716,9 @@ body{
 
 
     <div class="footer-text">
+
       Respuesta inmediata • Atención 24 hs
+
     </div>
 
   </div>
@@ -717,7 +734,7 @@ body{
 
 
 <!-- =========================================================
-     CERRAR
+     CERRAR CHAT
      ========================================================= -->
 
 <button
@@ -725,7 +742,9 @@ body{
   type="button"
   aria-label="Cerrar chat"
 >
+
   ✕
+
 </button>
 
 
@@ -755,425 +774,19 @@ const openBtn =
 
 let ready = false;
 
-let visitorSaved = false;
-
 let contactSent = false;
 
 
 /* =========================================================
-   WORKER TRIBET
-   ========================================================= */
-
-const ATTRIBUTION_WORKER =
-  'https://cold-tooth-b7b8.romiramirez9990.workers.dev/';
-
-
-/* =========================================================
-   COOKIE
-   ========================================================= */
-
-function getCookie(name){
-
-  const prefix =
-    name + '=';
-
-  const cookies =
-    document.cookie.split(';');
-
-  for(
-    let i = 0;
-    i < cookies.length;
-    i++
-  ){
-
-    const cookie =
-      cookies[i].trim();
-
-    if(
-      cookie.indexOf(prefix) === 0
-    ){
-
-      return decodeURIComponent(
-        cookie.substring(
-          prefix.length
-        )
-      );
-
-    }
-
-  }
-
-  return null;
-
-}
-
-
-/* =========================================================
-   FBP
-   ========================================================= */
-
-function getFBP(){
-
-  return getCookie('_fbp');
-
-}
-
-
-/* =========================================================
-   FBC
-   ========================================================= */
-
-function getFBC(){
-
-  let fbc =
-    getCookie('_fbc');
-
-
-  if(fbc){
-
-    return fbc;
-
-  }
-
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-
-  const fbclid =
-    params.get('fbclid');
-
-
-  if(!fbclid){
-
-    return null;
-
-  }
-
-
-  fbc =
-    'fb.1.' +
-    Date.now() +
-    '.' +
-    fbclid;
-
-
-  try{
-
-    document.cookie =
-      '_fbc=' +
-      encodeURIComponent(fbc) +
-      '; path=/; max-age=7776000; SameSite=Lax';
-
-  }catch(error){
-
-    console.log(
-      '⚠️ No se pudo guardar _fbc'
-    );
-
-  }
-
-
-  return fbc;
-
-}
-
-
-/* =========================================================
-   VISITANTE → CLOUDFLARE
-   ========================================================= */
-
-async function sendVisitorDataToWorker(){
-
-  if(visitorSaved){
-
-    return;
-
-  }
-
-
-  try{
-
-    const fbp =
-      getFBP();
-
-    const fbc =
-      getFBC();
-
-
-    console.log(
-      '========================================'
-    );
-
-    console.log(
-      '🔎 VISITANTE TRIBET'
-    );
-
-    console.log(
-      'FBP:',
-      fbp || 'NO DISPONIBLE'
-    );
-
-    console.log(
-      'FBC:',
-      fbc || 'NO DISPONIBLE'
-    );
-
-
-    if(
-      !fbp &&
-      !fbc
-    ){
-
-      console.log(
-        '⚠️ TODAVÍA NO HAY FBP/FBC'
-      );
-
-      return;
-
-    }
-
-
-    const response =
-      await fetch(
-        ATTRIBUTION_WORKER + 'visitor',
-        {
-
-          method:'POST',
-
-          headers:{
-            'Content-Type':
-              'application/json'
-          },
-
-          body:
-            JSON.stringify({
-
-              fbp:
-                fbp || null,
-
-              fbc:
-                fbc || null
-
-            })
-
-        }
-      );
-
-
-    const result =
-      await response.text();
-
-
-    console.log(
-      '📡 WORKER STATUS:',
-      response.status
-    );
-
-    console.log(
-      '📡 WORKER RESPONSE:',
-      result
-    );
-
-
-    if(response.ok){
-
-      visitorSaved = true;
-
-      console.log(
-        '✅ VISITANTE GUARDADO EN WORKER'
-      );
-
-    }
-
-  }catch(error){
-
-    console.error(
-      '❌ ERROR WORKER VISITOR:',
-      error
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   ENVIAR FBP / FBC A KOMMO
-
-   TRIBET:
-   FBP = 161526
-   FBC = 161528
-   ========================================================= */
-
-function sendMetaAttributionToKommo(){
-
-  try{
-
-    if(
-      typeof crm_plugin ===
-      'undefined'
-    ){
-
-      console.log(
-        '⚠️ crm_plugin todavía no disponible'
-      );
-
-      return false;
-
-    }
-
-
-    if(
-      typeof crm_plugin.setMeta !==
-      'function'
-    ){
-
-      console.log(
-        '⚠️ crm_plugin.setMeta no disponible'
-      );
-
-      return false;
-
-    }
-
-
-    const fbp =
-      getFBP();
-
-
-    const fbc =
-      getFBC();
-
-
-    console.log(
-      '========================================'
-    );
-
-    console.log(
-      '🔎 ATRIBUCIÓN TRIBET → KOMMO'
-    );
-
-    console.log(
-      'FBP:',
-      fbp || 'NO DISPONIBLE'
-    );
-
-    console.log(
-      'FBC:',
-      fbc || 'NO DISPONIBLE'
-    );
-
-
-    const customFields = [];
-
-
-    if(fbp){
-
-      customFields.push({
-
-        id: 161526,
-
-        values: [
-
-          {
-            value: String(fbp)
-          }
-
-        ]
-
-      });
-
-    }
-
-
-    if(fbc){
-
-      customFields.push({
-
-        id: 161528,
-
-        values: [
-
-          {
-            value: String(fbc)
-          }
-
-        ]
-
-      });
-
-    }
-
-
-    if(
-      customFields.length === 0
-    ){
-
-      console.log(
-        '⚠️ NO HAY FBP/FBC PARA KOMMO'
-      );
-
-      return false;
-
-    }
-
-
-    const payload = {
-
-      contact: {
-
-        custom_fields:
-          customFields
-
-      }
-
-    };
-
-
-    console.log(
-      '📦 PAYLOAD KOMMO:',
-      JSON.stringify(
-        payload,
-        null,
-        2
-      )
-    );
-
-
-    crm_plugin.setMeta(
-      payload
-    );
-
-
-    console.log(
-      '✅ FBP/FBC ENVIADOS A KOMMO'
-    );
-
-
-    return true;
-
-  }catch(error){
-
-    console.error(
-      '❌ ERROR ENVIANDO FBP/FBC A KOMMO:',
-      error
-    );
-
-    return false;
-
-  }
-
-}
-
-
-/* =========================================================
-   CONTACT → META PIXEL
-
-   SE DISPARA UNA SOLA VEZ POR CARGA
-   EXACTAMENTE AL ABRIR EL CHATWEB.
+   CONTACT
+   =========================================================
+
+   Se dispara UNA SOLA VEZ cuando
+   se abre el ChatWeb.
+
+   No depende de Cloudflare.
+   No depende de Kommo webhook.
+   No depende de un mensaje.
    ========================================================= */
 
 function sendContactEvent(){
@@ -1181,7 +794,7 @@ function sendContactEvent(){
   if(contactSent){
 
     console.log(
-      '⚠️ CONTACT YA FUE ENVIADO'
+      '⚠️ CONTACT YA ENVIADO'
     );
 
     return;
@@ -1189,15 +802,20 @@ function sendContactEvent(){
   }
 
 
-  try{
+  function trySend(){
 
     if(
-      typeof fbq !==
+      typeof window.fbq !==
       'function'
     ){
 
       console.log(
-        '⚠️ fbq todavía no está disponible'
+        '⏳ Esperando Meta Pixel...'
+      );
+
+      setTimeout(
+        trySend,
+        100
       );
 
       return;
@@ -1205,51 +823,56 @@ function sendContactEvent(){
     }
 
 
-    fbq(
-      'track',
-      'Contact'
-    );
+    try{
+
+      window.fbq(
+        'track',
+        'Contact'
+      );
 
 
-    contactSent = true;
+      contactSent = true;
 
 
-    console.log(
-      '========================================'
-    );
+      console.log(
+        '========================================'
+      );
 
-    console.log(
-      '✅ EVENTO CONTACT ENVIADO'
-    );
+      console.log(
+        '✅ EVENTO CONTACT ENVIADO A META'
+      );
 
-    console.log(
-      '✅ CONTACT = APERTURA CHATWEB'
-    );
-
-    console.log(
-      '========================================'
-    );
+      console.log(
+        '========================================'
+      );
 
 
-  }catch(error){
+    }catch(error){
 
-    console.error(
-      '❌ ERROR ENVIANDO CONTACT:',
-      error
-    );
+      console.error(
+        '❌ ERROR ENVIANDO CONTACT:',
+        error
+      );
+
+    }
 
   }
+
+
+  trySend();
 
 }
 
 
 /* =========================================================
    ABRIR CHAT REAL
-
-   CONTACT SE DISPARA AL ABRIR CHATWEB.
    ========================================================= */
 
 function openReal(){
+
+  /*
+   * Mostrar inmediatamente
+   */
 
   frame.classList.add(
     'is-open'
@@ -1261,28 +884,20 @@ function openReal(){
   );
 
 
+  /*
+   * CONTACT
+   *
+   * Se registra al abrir ChatWeb.
+   */
+
+  sendContactEvent();
+
+
+  /*
+   * Abrir Kommo
+   */
+
   try{
-
-    /*
-     * 1. Guardar atribución
-     */
-
-    sendMetaAttributionToKommo();
-
-
-    /*
-     * 2. CONTACT
-     *
-     * Se dispara cuando abrimos
-     * el ChatWeb.
-     */
-
-    sendContactEvent();
-
-
-    /*
-     * 3. Abrir ChatWeb
-     */
 
     crmPlugin(
       'runChatShow'
@@ -1297,7 +912,7 @@ function openReal(){
   }catch(error){
 
     console.error(
-      '❌ ERROR ABRIENDO CHAT:',
+      '❌ ERROR ABRIENDO CHATWEB:',
       error
     );
 
@@ -1356,7 +971,7 @@ function closeChat(){
 
 
 /* =========================================================
-   BIND KOMMO
+   ESPERAR A KOMMO
    ========================================================= */
 
 function bind(){
@@ -1368,7 +983,7 @@ function bind(){
 
     setTimeout(
       bind,
-      150
+      100
     );
 
     return;
@@ -1383,7 +998,7 @@ function bind(){
 
   crmPlugin(
     'onChatReady',
-    async function(){
+    function(){
 
       ready = true;
 
@@ -1394,23 +1009,7 @@ function bind(){
 
 
       /*
-       * 1. Guardar visitante
-       */
-
-      await sendVisitorDataToWorker();
-
-
-      /*
-       * 2. Guardar FBP/FBC en Kommo
-       */
-
-      sendMetaAttributionToKommo();
-
-
-      /*
-       * 3. ABRIR AUTOMÁTICAMENTE
-       *
-       * Sin esperar 300 ms.
+       * ABRIR AUTOMÁTICAMENTE
        */
 
       openReal();
@@ -1419,34 +1018,6 @@ function bind(){
   );
 
 }
-
-
-/* =========================================================
-   REINTENTO VISITANTE
-   ========================================================= */
-
-setTimeout(
-  function(){
-
-    sendVisitorDataToWorker();
-
-  },
-  1200
-);
-
-
-/* =========================================================
-   REINTENTO DE ATRIBUCIÓN
-   ========================================================= */
-
-setTimeout(
-  function(){
-
-    sendMetaAttributionToKommo();
-
-  },
-  1500
-);
 
 
 /* =========================================================
