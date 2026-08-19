@@ -1,30 +1,30 @@
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
+\<!DOCTYPE html>
+\<html lang="es">
+\<head>
 
-<meta charset="UTF-8">
+\<meta charset="UTF-8">
 
-<meta
+\<meta
   name="viewport"
   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
+\>
 
-<meta
+\<meta
   name="theme-color"
   content="#08040d"
->
+\>
 
-<title>TRIBET - Bono 30% Extra</title>
+\<title>TRIBET - Bono 30% Extra\</title>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      CONFIGURACIÓN KOMMO
-     ========================================================= -->
+     \========================================================= -->
 
-<script>
+\<script>
 
-window.crmPluginConfig = {
+window\.crmPluginConfig = {
 
   hidden: true,
 
@@ -40,7 +40,7 @@ window.crmPluginConfig = {
 
       extends: 'es',
 
-      compose_placeholder:
+      compose\_placeholder:
         'Escribí tu mensaje...'
 
     }
@@ -49,14 +49,15 @@ window.crmPluginConfig = {
 
 };
 
-</script>
+\</script>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      KOMMO
-     ========================================================= -->
+     \========================================================= -->
 
-<script>
+\<script>
 
 (function(a,m,o,c,r,m){
 
@@ -79,11 +80,13 @@ window.crmPluginConfig = {
   };
 
 
+
   a[o] = a[o] || function(){
 
     (a[o].q = a[o].q || []).push(arguments);
 
   };
+
 
 
   var d = a.document;
@@ -92,21 +95,23 @@ window.crmPluginConfig = {
 
   s.async = true;
 
-  s.id = m + '_script';
+  s.id = m + '\_script';
 
   s.src =
-    'https://gso.kommo.com/js/button.js';
+    '[https://gso.kommo.com/js/button.js](https://gso.kommo.com/js/button.js)';
 
   d.head &&
     d.head.appendChild(s);
 
 
-}(window, 0, 'crmPlugin', 0, 0, 'crm_plugin'));
 
-</script>
+}(window, 0, 'crmPlugin', 0, 0, 'crm\_plugin'));
+
+\</script>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      FACEBOOK PIXEL
      
      SOLO PAGEVIEW.
@@ -120,9 +125,9 @@ window.crmPluginConfig = {
      CLOUDFLARE WORKER
        ↓
      META CONVERSIONS API
-     ========================================================= -->
+     \========================================================= -->
 
-<script>
+\<script>
 
 !function(f,b,e,v,n,t,s){
 
@@ -136,8 +141,8 @@ window.crmPluginConfig = {
 
   };
 
-  if(!f._fbq)
-    f._fbq=n;
+  if(!f.\_fbq)
+    f.\_fbq=n;
 
   n.push=n;
 
@@ -161,14 +166,15 @@ window.crmPluginConfig = {
   window,
   document,
   'script',
-  'https://connect.facebook.net/en_US/fbevents.js'
+  '[https://connect.facebook.net/en\_US/fbevents.js](https://connect.facebook.net/en_US/fbevents.js)'
 );
 
 
-/*
-  =========================================================
-  PIXEL TRIBET
-  =========================================================
+
+/\*
+  \=========================================================
+  PIXEL OASIS
+  \=========================================================
 
   SOLO PageView.
 
@@ -178,10 +184,8 @@ window.crmPluginConfig = {
 
   NO evento al abrir el ChatWeb.
 
-  CONTACT VIENE EXCLUSIVAMENTE DESDE CAPI.
-
-  =========================================================
-*/
+  \=========================================================
+\*/
 
 fbq(
   'init',
@@ -189,114 +193,45 @@ fbq(
 );
 
 
+
 fbq(
   'track',
   'PageView'
 );
 
-
-/*
-  =========================================================
-  CAPTURA FBP / FBC
-  =========================================================
-
-  _fbp = identificador del navegador generado por Meta.
-
-  _fbc = identificador asociado al click de Facebook,
-         cuando existe un parámetro fbclid.
-
-  NO SE INVENTAN VALORES.
-
-  Si no existen, se envía null.
-
-  =========================================================
-*/
-
-function getCookie(name) {
-
-  const match = document.cookie.match(
-    new RegExp(
-      '(^|;\\s*)' +
-      name.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') +
-      '=([^;]*)'
-    )
-  );
-
-  return match
-    ? decodeURIComponent(match[2])
-    : null;
-}
+\</script>
 
 
-function getMetaTrackingData() {
 
-  const fbp = getCookie('_fbp');
+\<noscript>
 
-  const fbc = getCookie('_fbc');
-
-  return {
-
-    fbp: fbp || null,
-
-    fbc: fbc || null
-
-  };
-
-}
-
-
-/*
-  =========================================================
-  GUARDAR DATOS META
-  =========================================================
-*/
-
-const metaTracking =
-  getMetaTrackingData();
-
-
-console.log(
-  'META FBP:',
-  metaTracking.fbp
-);
-
-
-console.log(
-  'META FBC:',
-  metaTracking.fbc
-);
-
-
-</script>
-
-
-<noscript>
-
-  <img
+  \<img
     height="1"
     width="1"
-    style="display:none"
-    src="https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1"
-  >
+    style="display\:none"
+    src="[https://www.facebook.com/tr?id=1628936452188552&ev=PageView&noscript=1](https://www.facebook.com/tr?id=1628936452188552\&ev=PageView\&noscript=1)"
+  \>
 
-</noscript>
+\</noscript>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      ESTILOS
-     ========================================================= -->
+     \========================================================= -->
 
-<style>
+\<style>
 
-*{
+\*{
 
   margin:0;
 
   padding:0;
 
-  box-sizing:border-box;
+  box-sizing\:border-box;
 
 }
+
 
 
 html,
@@ -306,7 +241,7 @@ body{
 
   height:100%;
 
-  overflow:hidden;
+  overflow\:hidden;
 
   font-family:
     -apple-system,
@@ -324,9 +259,10 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    CONTENEDOR PRINCIPAL
-   ========================================================= */
+   \========================================================= \*/
 
 .wrapper{
 
@@ -338,26 +274,27 @@ body{
 
   margin:0 auto;
 
-  display:flex;
+  display\:flex;
 
-  flex-direction:column;
+  flex-direction\:column;
 
   background:#08040d;
 
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    HERO
-   ========================================================= */
+   \========================================================= \*/
 
 .hero{
 
   flex:1;
 
-  position:relative;
+  position\:relative;
 
-  overflow:hidden;
+  overflow\:hidden;
 
   min-height:0;
 
@@ -366,35 +303,37 @@ body{
 }
 
 
+
 .hero img{
 
   width:100%;
 
   height:100%;
 
-  display:block;
+  display\:block;
 
-  object-fit:cover;
+  object-fit\:cover;
 
-  object-position:center top;
+  object-position\:center top;
 
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    BARRA INFERIOR
-   ========================================================= */
+   \========================================================= \*/
 
 .cta-bar{
 
-  position:relative;
+  position\:relative;
 
   background:
 
     linear-gradient(
       180deg,
-      #160b20 0%,
-      #09040d 100%
+      \#160b20 0%,
+      \#09040d 100%
     );
 
   padding:12px 16px 18px;
@@ -408,17 +347,18 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    ESTADO ONLINE
-   ========================================================= */
+   \========================================================= \*/
 
 .ops{
 
-  display:flex;
+  display\:flex;
 
-  align-items:center;
+  align-items\:center;
 
-  justify-content:center;
+  justify-content\:center;
 
   gap:8px;
 
@@ -431,6 +371,7 @@ body{
   font-weight:700;
 
 }
+
 
 
 .ops::before{
@@ -449,22 +390,24 @@ body{
     0 0 8px
     rgba(212,175,55,0.8);
 
-  animation:pulseDot 1.4s infinite;
+  animation\:pulseDot 1.4s infinite;
 
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    BONO
-   ========================================================= */
+   \========================================================= \*/
 
 .bonus-line{
 
-  text-align:center;
+  text-align\:center;
 
   margin-bottom:11px;
 
 }
+
 
 
 .bonus-line .label{
@@ -475,11 +418,12 @@ body{
 
   color:#c9a94d;
 
-  text-transform:uppercase;
+  text-transform\:uppercase;
 
   font-weight:700;
 
 }
+
 
 
 .bonus-line .value{
@@ -500,9 +444,10 @@ body{
     0 0 20px
     rgba(212,175,55,0.25);
 
-  animation:glowText 2.4s ease-in-out infinite;
+  animation\:glowText 2.4s ease-in-out infinite;
 
 }
+
 
 
 .bonus-line .sub{
@@ -516,19 +461,20 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    BOTÓN CHAT
-   ========================================================= */
+   \========================================================= \*/
 
 .wa-btn{
 
   width:100%;
 
-  display:flex;
+  display\:flex;
 
-  align-items:center;
+  align-items\:center;
 
-  justify-content:center;
+  justify-content\:center;
 
   gap:10px;
 
@@ -538,15 +484,15 @@ body{
 
   border-radius:14px;
 
-  cursor:pointer;
+  cursor\:pointer;
 
   background:
 
     linear-gradient(
       135deg,
-      #D4AF37 0%,
-      #f3cc4f 45%,
-      #b8860b 100%
+      \#D4AF37 0%,
+      \#f3cc4f 45%,
+      \#b8860b 100%
     );
 
   color:#160b20;
@@ -569,13 +515,15 @@ body{
 }
 
 
-.wa-btn:active{
 
-  transform:scale(0.97);
+.wa-btn\:active{
 
-  animation:none;
+  transform\:scale(0.97);
+
+  animation\:none;
 
 }
+
 
 
 .wa-btn svg{
@@ -591,13 +539,14 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    TEXTO FINAL
-   ========================================================= */
+   \========================================================= \*/
 
 .footer-text{
 
-  text-align:center;
+  text-align\:center;
 
   margin-top:8px;
 
@@ -608,50 +557,52 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    ANIMACIONES
-   ========================================================= */
+   \========================================================= \*/
 
 @keyframes shake{
 
   0%,
   100%{
 
-    transform:translateX(0);
+    transform\:translateX(0);
 
   }
 
   8%{
 
-    transform:translateX(-3px);
+    transform\:translateX(-3px);
 
   }
 
   16%{
 
-    transform:translateX(3px);
+    transform\:translateX(3px);
 
   }
 
   24%{
 
-    transform:translateX(-2px);
+    transform\:translateX(-2px);
 
   }
 
   32%{
 
-    transform:translateX(2px);
+    transform\:translateX(2px);
 
   }
 
   40%{
 
-    transform:translateX(0);
+    transform\:translateX(0);
 
   }
 
 }
+
 
 
 @keyframes glowBtn{
@@ -676,6 +627,7 @@ body{
   }
 
 }
+
 
 
 @keyframes glowText{
@@ -705,6 +657,7 @@ body{
 }
 
 
+
 @keyframes pulseDot{
 
   0%,
@@ -712,7 +665,7 @@ body{
 
     opacity:1;
 
-    transform:scale(1);
+    transform\:scale(1);
 
   }
 
@@ -720,20 +673,21 @@ body{
 
     opacity:0.45;
 
-    transform:scale(0.8);
+    transform\:scale(0.8);
 
   }
 
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    CHATWEB KOMMO
-   ========================================================= */
+   \========================================================= \*/
 
-#kommoChatFrame{
+\#kommoChatFrame{
 
-  position:fixed;
+  position\:fixed;
 
   inset:0;
 
@@ -741,9 +695,9 @@ body{
 
   height:100%;
 
-  background:rgba(0,0,0,0.96);
+  background\:rgba(0,0,0,0.96);
 
-  visibility:hidden;
+  visibility\:hidden;
 
   opacity:0;
 
@@ -758,16 +712,18 @@ body{
 }
 
 
-#kommoChatFrame.is-open{
 
-  visibility:visible;
+\#kommoChatFrame.is-open{
+
+  visibility\:visible;
 
   opacity:1;
 
 }
 
 
-#kommoChatFrame iframe{
+
+\#kommoChatFrame iframe{
 
   width:100% !important;
 
@@ -778,13 +734,14 @@ body{
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    BOTÓN CERRAR CHAT
-   ========================================================= */
+   \========================================================= \*/
 
-#kommoClose{
+\#kommoClose{
 
-  position:fixed;
+  position\:fixed;
 
   top:16px;
 
@@ -794,7 +751,7 @@ body{
 
   height:44px;
 
-  border:none;
+  border\:none;
 
   border-radius:50%;
 
@@ -804,15 +761,15 @@ body{
 
   font-size:20px;
 
-  display:none;
+  display\:none;
 
-  align-items:center;
+  align-items\:center;
 
-  justify-content:center;
+  justify-content\:center;
 
   z-index:10000;
 
-  cursor:pointer;
+  cursor\:pointer;
 
   box-shadow:
 
@@ -822,132 +779,153 @@ body{
 }
 
 
-#kommoClose.is-open{
 
-  display:flex;
+\#kommoClose.is-open{
+
+  display\:flex;
 
 }
 
-</style>
-
-</head>
 
 
-<body>
+\</style>
+
+\</head>
 
 
-<!-- =========================================================
+
+\<body>
+
+
+
+\<!-- =========================================================
      LANDING
-     ========================================================= -->
+     \========================================================= -->
 
-<div class="wrapper">
+\<div class="wrapper">
 
 
-  <!-- HERO -->
 
-  <div class="hero">
+  \<!-- HERO -->
 
-    <img
+  \<div class="hero">
+
+    \<img
       src="tribet-hero-mobile.jpg"
       alt="TRIBET - Bono 30% Extra"
-    >
+    \>
 
-  </div>
-
-
-  <!-- CTA -->
-
-  <div class="cta-bar">
+  \</div>
 
 
-    <div class="ops">
+
+  \<!-- CTA -->
+
+  \<div class="cta-bar">
+
+
+
+    \<div class="ops">
 
       Operadores en línea ahora
 
-    </div>
+    \</div>
 
 
-    <div class="bonus-line">
 
-      <div class="label">
+    \<div class="bonus-line">
+
+      \<div class="label">
 
         BONO DE BIENVENIDA
 
-      </div>
+      \</div>
 
 
-      <div class="value">
+
+      \<div class="value">
 
         30% EXTRA
 
-      </div>
+      \</div>
 
 
-      <div class="sub">
+
+      \<div class="sub">
 
         en tu primer depósito
 
-      </div>
+      \</div>
 
-    </div>
+    \</div>
 
 
-    <button
+
+    \<button
       class="wa-btn"
       id="openChatBtn"
-    >
+    \>
 
 
-      <!-- ICONO WHATSAPP -->
 
-      <svg viewBox="0 0 24 24">
+      \<!-- ICONO WHATSAPP -->
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      \<svg viewBox="0 0 24 24">
 
-      </svg>
+        \<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+
+      \</svg>
+
 
 
       HABLÁ AHORA Y OBTENÉ TU BONO
 
 
-    </button>
+
+    \</button>
 
 
-    <div class="footer-text">
+
+    \<div class="footer-text">
 
       Respuesta inmediata • Atención 24 hs
 
-    </div>
+    \</div>
 
 
-  </div>
 
-</div>
+  \</div>
+
+\</div>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      CONTENEDOR CHATWEB
-     ========================================================= -->
+     \========================================================= -->
 
-<div id="kommoChatFrame"></div>
+\<div id="kommoChatFrame">\</div>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      BOTÓN CERRAR
-     ========================================================= -->
+     \========================================================= -->
 
-<button id="kommoClose">
+\<button id="kommoClose">
 
   ✕
 
-</button>
+\</button>
 
 
-<!-- =========================================================
+
+\<!-- =========================================================
      JAVASCRIPT CHATWEB
-     ========================================================= -->
+     \========================================================= -->
 
-<script>
+\<script>
+
 
 
 const frame =
@@ -956,10 +934,12 @@ const frame =
   );
 
 
+
 const closeBtn =
   document.getElementById(
     'kommoClose'
   );
+
 
 
 const openBtn =
@@ -968,12 +948,14 @@ const openBtn =
   );
 
 
+
 let ready = false;
 
 
-/* =========================================================
+
+/\* =========================================================
    ABRIR CHAT REAL
-   ========================================================= */
+   \========================================================= \*/
 
 function openReal(){
 
@@ -982,9 +964,11 @@ function openReal(){
   );
 
 
+
   closeBtn.classList.add(
     'is-open'
   );
+
 
 
   try{
@@ -994,9 +978,11 @@ function openReal(){
     );
 
 
+
     console.log(
       '✅ ChatWeb Kommo abierto'
     );
+
 
 
   }catch(e){
@@ -1011,9 +997,10 @@ function openReal(){
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    ABRIR CHAT MANUALMENTE
-   ========================================================= */
+   \========================================================= \*/
 
 function openChat(){
 
@@ -1026,9 +1013,10 @@ function openChat(){
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    CERRAR CHAT
-   ========================================================= */
+   \========================================================= \*/
 
 function closeChat(){
 
@@ -1037,9 +1025,11 @@ function closeChat(){
   );
 
 
+
   closeBtn.classList.remove(
     'is-open'
   );
+
 
 
   try{
@@ -1053,9 +1043,10 @@ function closeChat(){
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    ESPERAR A KOMMO
-   ========================================================= */
+   \========================================================= \*/
 
 function bind(){
 
@@ -1074,51 +1065,6 @@ function bind(){
   }
 
 
-  /*
-    =========================================================
-    PASAR FBP / FBC A KOMMO
-    =========================================================
-
-    Lo hacemos cuando Kommo ya está disponible.
-
-    NO generamos valores falsos.
-
-    Si Meta no creó alguno de los identificadores,
-    simplemente se envía null.
-
-    =========================================================
-  */
-
-  const metaTracking =
-    getMetaTrackingData();
-
-
-  try{
-
-    crmPlugin(
-      'setMeta',
-      {
-        fbp: metaTracking.fbp,
-        fbc: metaTracking.fbc
-      }
-    );
-
-
-    console.log(
-      '✅ FBP/FBC enviados a metadata de Kommo',
-      metaTracking
-    );
-
-
-  }catch(e){
-
-    console.log(
-      '❌ No se pudo enviar FBP/FBC a Kommo:',
-      e
-    );
-
-  }
-
 
   crmPlugin(
     'onChatReady',
@@ -1127,15 +1073,17 @@ function bind(){
       ready = true;
 
 
+
       console.log(
         '✅ Kommo ChatWeb listo'
       );
 
 
-      /*
+
+      /\*
         ABRIR AUTOMÁTICAMENTE
         AL ENTRAR A LA PÁGINA
-      */
+      \*/
 
       setTimeout(
         function(){
@@ -1152,14 +1100,16 @@ function bind(){
 }
 
 
-/* =========================================================
+
+/\* =========================================================
    BOTÓN
-   ========================================================= */
+   \========================================================= \*/
 
 openBtn.addEventListener(
   'click',
   openChat
 );
+
 
 
 closeBtn.addEventListener(
@@ -1168,16 +1118,20 @@ closeBtn.addEventListener(
 );
 
 
-/* =========================================================
+
+/\* =========================================================
    INICIAR
-   ========================================================= */
+   \========================================================= \*/
 
 bind();
 
 
-</script>
+
+\</script>
 
 
-</body>
-</html>
-```
+
+\</body>
+\</html>
+
+Te paso el html 
