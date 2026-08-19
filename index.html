@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -822,7 +821,6 @@ body{
       id="openChatBtn"
     >
 
-
       <!-- ICONO WHATSAPP -->
 
       <svg viewBox="0 0 24 24">
@@ -831,9 +829,7 @@ body{
 
       </svg>
 
-
       HABLÁ AHORA Y OBTENÉ TU BONO
-
 
     </button>
 
@@ -897,7 +893,7 @@ let ready = false;
 
 
 /* =========================================================
-   OBTENER COOKIE
+   OBTENER COOKIE META
    ========================================================= */
 
 function getCookie(name){
@@ -922,7 +918,17 @@ function getCookie(name){
 
 
 /* =========================================================
-   ENVIAR FBP / FBC A KOMMO
+   ENVIAR FBP / FBC COMO BOT_PARAMS A KOMMO
+     
+   IMPORTANTE:
+   NO MODIFICA DIRECTAMENTE EL CONTACTO.
+     
+   Los parámetros quedan disponibles para el Salesbot
+   mediante:
+     
+   {{bot_params.fbp}}
+   {{bot_params.fbc}}
+     
    ========================================================= */
 
 function sendMetaDataToKommo(){
@@ -937,13 +943,13 @@ function sendMetaDataToKommo(){
 
 
     console.log(
-      '🔎 FBP:',
+      '🔎 META FBP:',
       fbp
     );
 
 
     console.log(
-      '🔎 FBC:',
+      '🔎 META FBC:',
       fbc
     );
 
@@ -962,61 +968,36 @@ function sendMetaDataToKommo(){
     }
 
 
-    const customFields = [];
-
-
     /*
-      Solo agregamos FBP si existe.
+      =====================================================
+      ENVIAMOS SOLO LOS DATOS QUE REALMENTE EXISTEN
+      =====================================================
     */
+
+    const botParams = {};
+
 
     if(fbp){
 
-      customFields.push({
-
-        id: 161526,
-
-        values: [
-
-          {
-            value: fbp
-          }
-
-        ]
-
-      });
+      botParams.fbp = fbp;
 
     }
 
-
-    /*
-      Solo agregamos FBC si existe.
-      Si es null, no enviamos nada.
-    */
 
     if(fbc){
 
-      customFields.push({
-
-        id: 161528,
-
-        values: [
-
-          {
-            value: fbc
-
-          }
-
-        ]
-
-      });
+      botParams.fbc = fbc;
 
     }
 
 
-    if(customFields.length === 0){
+    if(
+      !botParams.fbp &&
+      !botParams.fbc
+    ){
 
       console.log(
-        '⚠️ No hay FBP/FBC para enviar'
+        '⚠️ No hay FBP/FBC disponibles'
       );
 
       return;
@@ -1024,27 +1005,34 @@ function sendMetaDataToKommo(){
     }
 
 
+    /*
+      =====================================================
+      SETMETA → BOT_PARAMS
+      =====================================================
+    */
+
     crm_plugin.setMeta({
 
-      contact: {
-
-        custom_fields:
-          customFields
-
-      }
+      bot_params: botParams
 
     });
 
 
     console.log(
-      '✅ FBP/FBC enviados a Kommo antes de abrir el chat'
+      '✅ FBP/FBC enviados a Kommo como bot_params'
+    );
+
+
+    console.log(
+      '📦 BOT PARAMS:',
+      botParams
     );
 
 
   }catch(error){
 
     console.log(
-      '❌ Error enviando FBP/FBC a Kommo:',
+      '❌ Error enviando bot_params:',
       error
     );
 
@@ -1072,19 +1060,18 @@ function openReal(){
   try{
 
     /*
-      =======================================================
-      NUEVO:
-      ENVIAMOS FBP/FBC JUSTO ANTES DE ABRIR EL CHAT
-      =======================================================
+      =====================================================
+      ENVIAR FBP/FBC ANTES DE INICIAR EL CHAT
+      =====================================================
     */
 
     sendMetaDataToKommo();
 
 
     /*
-      =======================================================
-      ABRIR CHAT
-      =======================================================
+      =====================================================
+      ABRIR CHAT REAL
+      =====================================================
     */
 
     crmPlugin(
@@ -1232,4 +1219,3 @@ bind();
 
 </body>
 </html>
-```
