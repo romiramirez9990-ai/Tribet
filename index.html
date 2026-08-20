@@ -107,11 +107,12 @@ window.crmPluginConfig = {
 
 
 <!-- =========================================================
-     META PIXEL TRIBET
+     META PIXEL
      
      SOLAMENTE PAGEVIEW
      
-     NO SE ENVÍA CONTACT AL ABRIR EL CHAT
+     NO CONTACT
+     NO CONVERSATION TODAVÍA
      ========================================================= -->
 
 <script>
@@ -120,10 +121,6 @@ window.crmPluginConfig = {
 
   'use strict';
 
-
-  /*
-   * CARGAR PIXEL
-   */
 
   !function(f,b,e,v,n,t,s){
 
@@ -173,7 +170,7 @@ window.crmPluginConfig = {
 
 
   /*
-   * INICIALIZAR PIXEL TRIBET
+   * INICIALIZAR PIXEL
    */
 
   fbq(
@@ -262,7 +259,6 @@ body{
 
 /* =========================================================
    CHATWEB
-   OCUPA TODA LA PANTALLA
    ========================================================= */
 
 #kommoChatFrame{
@@ -476,7 +472,7 @@ let ready = false;
 
 
 /* =========================================================
-   MOSTRAR CHAT
+   ABRIR CHAT
    ========================================================= */
 
 function openReal(){
@@ -487,7 +483,7 @@ function openReal(){
 
 
   /*
-   * Mostrar contenedor
+   * Mostrar Chatweb
    */
 
   frame.classList.add(
@@ -496,7 +492,7 @@ function openReal(){
 
 
   /*
-   * Abrir ChatWeb
+   * Abrir Kommo
    */
 
   try{
@@ -509,7 +505,6 @@ function openReal(){
     console.log(
       '✅ CHATWEB TRIBET ABIERTO'
     );
-
 
   }catch(error){
 
@@ -528,7 +523,9 @@ function openReal(){
   setTimeout(
     function(){
 
-      loading.style.opacity = '0';
+      loading.style.opacity =
+        '0';
+
 
       setTimeout(
         function(){
@@ -578,10 +575,9 @@ function bind(){
   );
 
 
-  /*
-   * Kommo confirma que el chat
-   * está listo
-   */
+  /* =======================================================
+     CHAT READY
+     ======================================================= */
 
   crmPlugin(
     'onChatReady',
@@ -595,9 +591,148 @@ function bind(){
       );
 
 
-      /*
-       * ABRIR AUTOMÁTICAMENTE
-       */
+      /* ===================================================
+         DETECTOR DE CAMBIOS EN CONVERSACIONES
+         =================================================== */
+
+      try{
+
+        crmPlugin(
+          'onConversationsChange',
+          function(conversations){
+
+            console.log(
+              '🔥🔥🔥 onConversationsChange 🔥🔥🔥'
+            );
+
+
+            console.log(
+              'Conversaciones recibidas:',
+              conversations
+            );
+
+
+            /*
+             * Comprobar que sea un array
+             */
+
+            if(
+              !Array.isArray(
+                conversations
+              )
+            ){
+
+              console.log(
+                '⚠️ Kommo no devolvió un array'
+              );
+
+              return;
+
+            }
+
+
+            /*
+             * Recorrer conversaciones
+             */
+
+            conversations.forEach(
+              function(conversation, index){
+
+                console.log(
+                  '━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+                );
+
+
+                console.log(
+                  '📌 CONVERSACIÓN #' +
+                  (index + 1)
+                );
+
+
+                console.log(
+                  'Objeto completo:',
+                  conversation
+                );
+
+
+                /*
+                 * ID
+                 */
+
+                console.log(
+                  '🆔 ID:',
+                  conversation.id
+                );
+
+
+                /*
+                 * Último mensaje
+                 */
+
+                if(
+                  conversation.last_message
+                ){
+
+                  console.log(
+                    '💬 ÚLTIMO MENSAJE:',
+                    conversation.last_message
+                  );
+
+
+                  console.log(
+                    '📝 TEXTO:',
+                    conversation
+                      .last_message
+                      .text
+                  );
+
+
+                  console.log(
+                    '📤 IS_OUT:',
+                    conversation
+                      .last_message
+                      .is_out
+                  );
+
+
+                }else{
+
+                  console.log(
+                    '⚠️ No hay last_message'
+                  );
+
+                }
+
+
+                console.log(
+                  '━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+        console.log(
+          '✅ Detector onConversationsChange registrado'
+        );
+
+
+      }catch(error){
+
+        console.error(
+          '❌ ERROR REGISTRANDO onConversationsChange:',
+          error
+        );
+
+      }
+
+
+      /* ===================================================
+         ABRIR CHAT AUTOMÁTICAMENTE
+         =================================================== */
 
       openReal();
 
